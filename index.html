@@ -51,11 +51,13 @@ body {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
   gap: 16px;
-  clip-path: inset(0 0 0 0);
-  transition: clip-path 0.7s cubic-bezier(0.76,0,0.24,1);
+  opacity: 1;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  visibility: visible;
 }
 #loader.hide {
-  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
 }
 .loader-logo {
@@ -661,6 +663,67 @@ a.link-grow:hover::after { width: 100%; }
 .why-card-icon { font-size: 24px; margin-bottom: 10px; }
 .why-card h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 8px; }
 .why-card p { font-size: 14px; color: var(--text-muted); }
+
+/* ═══════════════════════════════ MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+  .container { padding: 0 16px; }
+  .section { padding: 60px 0; }
+  .section-title { font-size: 1.8rem; }
+  .section-sub { font-size: 15px; }
+
+  /* Hero */
+  .hero-title { font-size: 2rem !important; }
+  .hero-sub { font-size: 15px !important; }
+  .hero-btns { flex-direction: column; gap: 10px; }
+  .hero-btns .btn { width: 100%; justify-content: center; text-align: center; }
+  .trust-pills { flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .trust-pills span { font-size: 11px; }
+
+  /* Stats */
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-num { font-size: 2rem; }
+
+  /* Terminal */
+  .terminal-wrap { margin: 0 -16px; border-radius: 0; }
+  .terminal-body { padding: 16px 12px; font-size: 11px; min-height: 250px; }
+
+  /* Pricing grid */
+  .pricing-grid { grid-template-columns: 1fr !important; max-width: 420px; margin-left: auto; margin-right: auto; }
+
+  /* Before/After slider */
+  #baSlider { height: 360px !important; }
+  #baSlider div[style*="padding:48px"] { padding: 24px !important; }
+
+  /* Marketplace */
+  .marketplace-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 12px; }
+
+  /* Nav */
+  .nav-links { display: none; }
+  .mob-toggle { display: flex !important; }
+
+  /* Loader */
+  .loader-logo img { width: 60px !important; height: 60px !important; }
+  .loader-text { font-size: 18px; }
+  .loader-bar { width: 160px; }
+
+  /* Industry tiles */
+  .industry-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Competitor table */
+  .comp-table { font-size: 12px; overflow-x: auto; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: 1.6rem !important; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .stat-num { font-size: 1.6rem; }
+  .bento-grid { gap: 12px; }
+  .bento-card { padding: 20px; }
+  .marketplace-grid { grid-template-columns: 1fr !important; }
+  .industry-grid { grid-template-columns: 1fr !important; }
+  .pricing-grid { max-width: 100%; }
+  #baSlider { height: 300px !important; }
+}
 </style>
 </head>
 <body>
