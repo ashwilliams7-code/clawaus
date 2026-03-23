@@ -385,6 +385,7 @@ a { text-decoration: none; color: inherit; }
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0,0,0,0.35);
 }
+.post-card.hidden { display: none; }
 .post-card-img {
   position: relative;
   overflow: hidden;
@@ -396,12 +397,6 @@ a { text-decoration: none; color: inherit; }
   transition: transform 0.5s ease;
 }
 .post-card:hover .post-card-img img { transform: scale(1.05); }
-.post-card-img-placeholder {
-  width: 100%; height: 100%;
-  background: linear-gradient(135deg, var(--bg-mid) 0%, rgba(20,184,166,0.08) 100%);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 40px;
-}
 .post-card-body {
   padding: 28px;
   display: flex; flex-direction: column; gap: 14px;
@@ -418,6 +413,7 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.3;
   text-decoration: none;
   transition: color 0.15s;
+  display: block;
 }
 .post-card-title:hover { color: var(--coral); }
 .post-card-excerpt {
@@ -432,6 +428,18 @@ a { text-decoration: none; color: inherit; }
   border-top: 1px solid var(--border);
   margin-top: auto;
 }
+
+/* ═══════════════════════════════ EMPTY STATE */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--text-muted);
+  display: none;
+}
+.empty-state.visible { display: block; }
+.empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
+.empty-state h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
 
 /* ═══════════════════════════════ NEWSLETTER */
 .newsletter-block {
@@ -491,16 +499,6 @@ a { text-decoration: none; color: inherit; }
   white-space: nowrap;
 }
 .newsletter-btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px var(--coral-glow); }
-
-/* ═══════════════════════════════ EMPTY STATE */
-.empty-state {
-  grid-column: 1 / -1;
-  text-align: center;
-  padding: 80px 20px;
-  color: var(--text-muted);
-}
-.empty-state .empty-icon { font-size: 48px; margin-bottom: 16px; }
-.empty-state h3 { font-size: 18px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
 
 /* ═══════════════════════════════ FOOTER */
 footer a { color: var(--teal); text-decoration: none; }
@@ -572,15 +570,22 @@ footer a { color: var(--teal); text-decoration: none; }
 
     <!-- Filter bar -->
     <div class="filter-bar reveal">
-      <button class="filter-btn active">All Posts</button>
-      <button class="filter-btn">Case Studies</button>
-      <button class="filter-btn">Guides</button>
-      <button class="filter-btn">Industry News</button>
-      <button class="filter-btn">OpenClaw Updates</button>
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="Mortgage Brokers">Mortgage Brokers</button>
+      <button class="filter-btn" data-filter="Real Estate">Real Estate</button>
+      <button class="filter-btn" data-filter="Legal">Legal</button>
+      <button class="filter-btn" data-filter="Accounting">Accounting</button>
+      <button class="filter-btn" data-filter="Healthcare">Healthcare</button>
+      <button class="filter-btn" data-filter="Recruitment">Recruitment</button>
+      <button class="filter-btn" data-filter="Hospitality">Hospitality</button>
+      <button class="filter-btn" data-filter="Insurance">Insurance</button>
     </div>
 
-    <!-- Featured post -->
-    <a href="2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html" class="featured-post reveal" style="text-decoration:none;display:grid;">
+    <!-- Featured post — Mortgage Broker (newest, 2026-03-23) -->
+    <a href="2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html"
+       class="featured-post reveal"
+       data-category="Mortgage Brokers"
+       style="text-decoration:none;display:grid;">
       <div class="featured-post-img">
         <div class="featured-badge">⭐ Featured</div>
         <img src="mortgage-broker-ai-hero.png" alt="Brisbane mortgage broker using AI to save time" loading="eager" />
@@ -588,7 +593,7 @@ footer a { color: var(--teal); text-decoration: none; }
       <div class="featured-post-content">
         <div class="post-card-tags">
           <span class="tag">Case Study</span>
-          <span class="tag-teal tag" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Mortgage Brokers</span>
+          <span class="tag tag-teal">Mortgage Brokers</span>
         </div>
         <div class="post-meta">
           <span class="post-meta-item">
@@ -601,7 +606,7 @@ footer a { color: var(--teal); text-decoration: none; }
             8 min read
           </span>
           <span class="post-meta-sep">·</span>
-          <span class="post-meta-item">King Klaw Team</span>
+          <span class="post-meta-item">Sarah Chen, Fortitude Valley</span>
         </div>
         <h2>How a Brisbane Mortgage Broker Saved 12 Hours a Week With OpenClaw</h2>
         <p>Sarah Chen was drowning in follow-up emails, compliance paperwork, and CRM updates. One AI deployment later, she's settling 3 more loans a month and finally leaving the office before 7pm.</p>
@@ -611,56 +616,196 @@ footer a { color: var(--teal); text-decoration: none; }
       </div>
     </a>
 
-    <!-- Post grid (more posts will go here) -->
-    <div class="post-grid">
+    <!-- Post grid — posts 2–8, newest first -->
+    <div class="post-grid" id="postGrid">
 
-      <!-- Coming soon placeholders to suggest the blog is growing -->
-      <div class="post-card reveal" style="opacity:0.5;pointer-events:none;">
+      <!-- Post 2: Real Estate — 2026-03-22 -->
+      <div class="post-card reveal" data-category="Real Estate">
         <div class="post-card-img">
-          <div class="post-card-img-placeholder">⚖️</div>
+          <img src="real-estate-hero.png" alt="Gold Coast real estate agency never loses after-hours leads" loading="lazy" />
         </div>
         <div class="post-card-body">
           <div class="post-card-tags">
-            <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Coming Soon</span>
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Real Estate</span>
           </div>
-          <span class="post-card-title">How a Brisbane Law Firm Cut Document Review Time by 60%</span>
-          <p class="post-card-excerpt">A 4-partner firm in the CBD shares how AI-assisted contract review changed their billing model — and their work-life balance.</p>
+          <a href="2026-03-22-real-estate-agency-never-misses-lead.html" class="post-card-title">
+            How a Gold Coast Real Estate Agency Stopped Losing Leads After Hours
+          </a>
+          <p class="post-card-excerpt">Mark and Tanya Hartwell were watching weekend enquiries go cold before Monday. An AI agent that pre-qualifies buyers and books inspections changed everything — including their Saturday nights.</p>
           <div class="post-card-footer">
-            <span class="post-meta-item" style="font-size:13px;color:var(--text-muted);">Coming April 2026</span>
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              22 Mar 2026
+            </span>
+            <a href="2026-03-22-real-estate-agency-never-misses-lead.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="post-card reveal" style="opacity:0.5;pointer-events:none;transition-delay:0.1s;">
+      <!-- Post 3: Legal — 2026-03-21 -->
+      <div class="post-card reveal" data-category="Legal" style="transition-delay:0.05s;">
         <div class="post-card-img">
-          <div class="post-card-img-placeholder">🏠</div>
+          <img src="conveyancer-hero.png" alt="Sydney conveyancer cuts settlement turnaround time" loading="lazy" />
         </div>
         <div class="post-card-body">
           <div class="post-card-tags">
-            <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Coming Soon</span>
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Legal</span>
           </div>
-          <span class="post-card-title">The Real Estate Agency That Never Misses an After-Hours Enquiry</span>
-          <p class="post-card-excerpt">A Gold Coast agency explains how an OpenClaw AI agent handles weekend enquiries, pre-qualifies buyers, and books inspection times — automatically.</p>
+          <a href="2026-03-21-conveyancer-cut-turnaround-time-in-half.html" class="post-card-title">
+            How a Sydney Conveyancer Cut Settlement Turnaround Time in Half
+          </a>
+          <p class="post-card-excerpt">James Kowalski's Parramatta practice was drowning in title searches, contract reviews, and client status calls. AI automation didn't just speed things up — it doubled his capacity.</p>
           <div class="post-card-footer">
-            <span class="post-meta-item" style="font-size:13px;color:var(--text-muted);">Coming April 2026</span>
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              21 Mar 2026
+            </span>
+            <a href="2026-03-21-conveyancer-cut-turnaround-time-in-half.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="post-card reveal" style="opacity:0.5;pointer-events:none;transition-delay:0.2s;">
+      <!-- Post 4: Accounting — 2026-03-20 -->
+      <div class="post-card reveal" data-category="Accounting" style="transition-delay:0.1s;">
         <div class="post-card-img">
-          <div class="post-card-img-placeholder">🔢</div>
+          <img src="accounting-hero.png" alt="Brisbane accounting firm onboards clients same day with AI" loading="lazy" />
         </div>
         <div class="post-card-body">
           <div class="post-card-tags">
-            <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Coming Soon</span>
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Accounting</span>
           </div>
-          <span class="post-card-title">Why Your Accounting Firm's AI Rollout Probably Failed (And How to Fix It)</span>
-          <p class="post-card-excerpt">Not all AI deployments are created equal. We break down the five most common failure modes — and exactly what to do differently.</p>
+          <a href="2026-03-20-accounting-firm-onboards-clients-in-one-day.html" class="post-card-title">
+            How a Brisbane Accounting Firm Went From 4-Day Onboarding to Same-Day
+          </a>
+          <p class="post-card-excerpt">Linda and David Park were losing prospective clients during a slow onboarding process. With AI handling document collection, verification, and welcome comms, new clients are set up before lunch.</p>
           <div class="post-card-footer">
-            <span class="post-meta-item" style="font-size:13px;color:var(--text-muted);">Coming May 2026</span>
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              20 Mar 2026
+            </span>
+            <a href="2026-03-20-accounting-firm-onboards-clients-in-one-day.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
           </div>
         </div>
+      </div>
+
+      <!-- Post 5: Healthcare — 2026-03-19 -->
+      <div class="post-card reveal" data-category="Healthcare" style="transition-delay:0.15s;">
+        <div class="post-card-img">
+          <img src="allied-health-hero.png" alt="Brisbane allied health clinic reduces no-shows with AI" loading="lazy" />
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tags">
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Healthcare</span>
+          </div>
+          <a href="2026-03-19-allied-health-clinic-reduced-no-shows-by-60-percent.html" class="post-card-title">
+            How a Brisbane Allied Health Clinic Reduced No-Shows by 60%
+          </a>
+          <p class="post-card-excerpt">Dr. Priya Sharma's Chermside clinic was haemorrhaging revenue through missed appointments. Automated reminders, rebooking flows, and waitlist management turned a chronic problem into a solved one.</p>
+          <div class="post-card-footer">
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              19 Mar 2026
+            </span>
+            <a href="2026-03-19-allied-health-clinic-reduced-no-shows-by-60-percent.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 6: Recruitment — 2026-03-18 -->
+      <div class="post-card reveal" data-category="Recruitment" style="transition-delay:0.2s;">
+        <div class="post-card-img">
+          <img src="recruitment-hero.png" alt="Brisbane recruitment agency places more candidates with AI" loading="lazy" />
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tags">
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Recruitment</span>
+          </div>
+          <a href="2026-03-18-recruitment-agency-placed-4-more-candidates-per-month.html" class="post-card-title">
+            How a Brisbane Recruitment Agency Placed 4 More Candidates Per Month
+          </a>
+          <p class="post-card-excerpt">Tom Nguyen's Brisbane CBD agency was spending too many billable hours on CV screening and interview scheduling. AI reclaimed those hours — and put them straight back into business development.</p>
+          <div class="post-card-footer">
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              18 Mar 2026
+            </span>
+            <a href="2026-03-18-recruitment-agency-placed-4-more-candidates-per-month.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 7: Hospitality — 2026-03-17 -->
+      <div class="post-card reveal" data-category="Hospitality" style="transition-delay:0.25s;">
+        <div class="post-card-img">
+          <img src="hospitality-hero.png" alt="Melbourne hospitality group handles 500 weekly bookings without extra staff" loading="lazy" />
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tags">
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Hospitality</span>
+          </div>
+          <a href="2026-03-17-hospitality-group-handles-500-bookings-week.html" class="post-card-title">
+            How a Melbourne Hospitality Group Handles 500 Bookings a Week Without Extra Staff
+          </a>
+          <p class="post-card-excerpt">Elena Papandreou's group of three Melbourne venues was buried in booking calls, dietary queries, and last-minute changes. An AI front-of-house now handles it all — without adding a single headcount.</p>
+          <div class="post-card-footer">
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              17 Mar 2026
+            </span>
+            <a href="2026-03-17-hospitality-group-handles-500-bookings-week.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post 8: Insurance — 2026-03-16 -->
+      <div class="post-card reveal" data-category="Insurance" style="transition-delay:0.3s;">
+        <div class="post-card-img">
+          <img src="insurance-hero.png" alt="Perth insurance broker puts 400 renewals on autopilot" loading="lazy" />
+        </div>
+        <div class="post-card-body">
+          <div class="post-card-tags">
+            <span class="tag">Case Study</span>
+            <span class="tag tag-teal">Insurance</span>
+          </div>
+          <a href="2026-03-16-insurance-broker-renewals-on-autopilot.html" class="post-card-title">
+            How a Perth Insurance Broker Put 400 Renewals on Autopilot
+          </a>
+          <p class="post-card-excerpt">Craig Morrison's Subiaco brokerage had 400 policies coming up for renewal every quarter. Chasing each one manually was a full-time job. Now the AI does it — and retention rates have never been higher.</p>
+          <div class="post-card-footer">
+            <span class="post-meta-item" style="font-size:13px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              16 Mar 2026
+            </span>
+            <a href="2026-03-16-insurance-broker-renewals-on-autopilot.html" class="read-more-link" style="font-size:13px;">
+              Read more <span class="read-more-arrow" style="width:22px;height:22px;font-size:11px;">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state — shown when a category filter has no results -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">🔍</div>
+        <h3>No posts in this category yet</h3>
+        <p>More case studies are on the way. Subscribe below to be first to know.</p>
       </div>
 
     </div>
@@ -743,11 +888,46 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-/* ── Filter buttons (cosmetic for now) ── */
+/* ── Category filter ── */
+const featuredPost = document.querySelector('.featured-post');
+const postCards    = document.querySelectorAll('#postGrid .post-card');
+const emptyState   = document.getElementById('emptyState');
+
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
+    // Toggle active state
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
+
+    const filter = btn.dataset.filter;
+
+    // Handle the featured post (Mortgage Brokers)
+    const featuredCategory = featuredPost.dataset.category;
+    if (filter === 'all' || filter === featuredCategory) {
+      featuredPost.style.display = 'grid';
+    } else {
+      featuredPost.style.display = 'none';
+    }
+
+    // Handle grid cards
+    let visibleCount = 0;
+    postCards.forEach(card => {
+      const cat = card.dataset.category;
+      if (filter === 'all' || filter === cat) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    // Show/hide empty state
+    const featuredVisible = (filter === 'all' || filter === featuredCategory);
+    if (visibleCount === 0 && !featuredVisible) {
+      emptyState.classList.add('visible');
+    } else {
+      emptyState.classList.remove('visible');
+    }
   });
 });
 

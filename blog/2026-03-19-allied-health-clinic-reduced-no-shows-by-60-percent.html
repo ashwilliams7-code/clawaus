@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How a Brisbane Allied Health Clinic Reduced No-Shows by 60% — King Klaw</title>
+  <meta name="description" content="Northside Allied Health's 18% no-show rate was haemorrhaging $3,600 a week. After deploying OpenClaw through King Klaw, Dr. Priya Sharma cut no-shows to 7% and recovered $18,000 in monthly revenue." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How a Brisbane Allied Health Clinic Reduced No-Shows by 60%" />
+  <meta property="og:description" content="Dr. Priya Sharma's Chermside clinic was losing $3,600 a week to no-shows and burying practitioners in NDIS admin. Here's how that changed." />
+  <meta property="og:image" content="https://kingklaw.com.au/blog/allied-health-hero.png" />
+  <meta property="og:url" content="https://kingklaw.com.au/blog/2026-03-19-allied-health-clinic-reduced-no-shows-by-60-percent.html" />
+  <meta property="article:published_time" content="2026-03-19" />
+  <meta property="article:author" content="King Klaw Team" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How a Brisbane Allied Health Clinic Reduced No-Shows by 60%" />
+  <meta name="twitter:description" content="Real results from a 4-practitioner allied health clinic in Chermside, Brisbane." />
+  <meta name="twitter:image" content="https://kingklaw.com.au/blog/allied-health-hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════ TOKENS */
+:root {
+  --coral:       #ff5c5c;
+  --coral-glow:  rgba(255,92,92,0.35);
+  --coral-dim:   rgba(255,92,92,0.12);
+  --teal:        #14b8a6;
+  --teal-glow:   rgba(20,184,166,0.35);
+  --teal-dim:    rgba(20,184,166,0.12);
+  --bg:          #0a0e17;
+  --bg-mid:      #0d1322;
+  --bg-card:     rgba(255,255,255,0.04);
+  --bg-glass:    rgba(255,255,255,0.06);
+  --border:      rgba(255,255,255,0.08);
+  --border-hi:   rgba(255,255,255,0.14);
+  --text:        #e2e8f0;
+  --text-muted:  #8898aa;
+  --white:       #ffffff;
+  --radius:      16px;
+  --radius-lg:   24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════ UTILITIES */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+a { text-decoration: none; color: inherit; }
+
+.grad-text {
+  background: linear-gradient(135deg, var(--coral) 0%, #ff8c69 40%, var(--teal) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: grad-hue 6s linear infinite;
+}
+@keyframes grad-hue {
+  0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral);
+  background: var(--coral-dim);
+  border: 1px solid rgba(255,92,92,0.25);
+  padding: 5px 14px; border-radius: 100px;
+}
+.tag-teal {
+  color: var(--teal);
+  background: var(--teal-dim);
+  border-color: rgba(20,184,166,0.25);
+}
+
+a.link-grow {
+  position: relative;
+  color: var(--teal);
+  text-decoration: none;
+}
+a.link-grow::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0%; height: 1px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+a.link-grow:hover::after { width: 100%; }
+
+/* ═══════════════════════════════ NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 28px;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+#nav.scrolled {
+  background: rgba(10,14,23,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px; font-weight: 800; color: #fff;
+  text-decoration: none;
+}
+.nav-logo img {
+  filter: drop-shadow(0 0 10px rgba(255,92,92,0.6));
+  animation: logo-glow 3s ease-in-out infinite;
+}
+@keyframes logo-glow {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)) drop-shadow(0 0 20px rgba(255,92,92,0.3)); }
+  50%     { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)) drop-shadow(0 0 40px rgba(255,92,92,0.5)); }
+}
+@keyframes lobster-pulse {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)); }
+  50%      { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)); }
+}
+.nav-links {
+  display: flex; align-items: center; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-muted);
+  transition: color 0.15s; text-decoration: none;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-cta {
+  margin-left: 12px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 26px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  text-decoration: none;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: all 0.2s;
+}
+.mob-menu {
+  display: none; position: fixed; inset: 0; top: 72px; z-index: 199;
+  background: var(--bg);
+  padding: 36px 28px;
+  flex-direction: column; gap: 28px;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a { font-size: 22px; font-weight: 600; color: #fff; text-decoration: none; }
+
+/* ═══════════════════════════════ ARTICLE HERO */
+.article-hero {
+  padding-top: 100px;
+  position: relative;
+}
+.article-hero-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.article-hero-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.article-hero-img-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════ ARTICLE LAYOUT */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  padding: 0 0 120px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { order: -1; }
+}
+
+/* ═══════════════════════════════ ARTICLE HEADER */
+.article-header {
+  padding: 48px 0 40px;
+}
+.article-header .back-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-bottom: 28px;
+}
+.article-header .back-link:hover { color: var(--teal); }
+.article-tags {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.article-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.article-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 14px; font-weight: 600; color: #fff;
+}
+.author-role {
+  font-size: 12px; color: var(--text-muted);
+}
+.article-meta-divider {
+  width: 1px; height: 32px; background: var(--border);
+}
+.article-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ═══════════════════════════════ ARTICLE BODY */
+.article-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.article-body p {
+  margin-bottom: 24px;
+}
+.article-body h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 52px 0 20px;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 36px 0 16px;
+}
+.article-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+.article-body a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body ul, .article-body ol {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.article-body li {
+  margin-bottom: 10px;
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--coral);
+  padding: 24px 32px;
+  margin: 40px 0;
+  background: var(--coral-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pull-quote p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 12px !important;
+}
+.pull-quote cite {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Stats callout */
+.stats-callout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+@media (max-width: 600px) { .stats-callout { grid-template-columns: 1fr; } }
+.stats-callout-item {
+  text-align: center;
+  padding: 16px;
+}
+.stats-callout-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stats-callout-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: var(--teal-dim);
+  border: 1px solid rgba(20,184,166,0.25);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.highlight-box-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.highlight-box p {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.highlight-box ul {
+  margin-bottom: 0;
+}
+.highlight-box li {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════ SIDEBAR */
+.article-sidebar {
+  position: sticky;
+  top: 100px;
+}
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.sidebar-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.sidebar-toc a {
+  display: block;
+  font-size: 14px; color: var(--text-muted);
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sidebar-toc a:last-child { border-bottom: none; }
+.sidebar-toc a:hover { color: var(--teal); padding-left: 6px; }
+.sidebar-toc a.active { color: var(--coral); padding-left: 6px; }
+
+.share-buttons {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.share-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.share-btn:hover { border-color: var(--border-hi); background: var(--bg-glass); color: #fff; }
+.share-btn svg { flex-shrink: 0; }
+
+/* CTA Sidebar */
+.sidebar-cta {
+  background: linear-gradient(135deg, rgba(255,92,92,0.12) 0%, rgba(20,184,166,0.08) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+}
+.sidebar-cta h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.sidebar-cta p {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.sidebar-cta-btn {
+  display: block;
+  padding: 13px 20px; border-radius: 10px;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px var(--coral-glow);
+}
+.sidebar-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--coral-glow); }
+
+/* ═══════════════════════════════ ARTICLE CTA */
+.article-cta {
+  margin: 64px 0 0;
+  padding: 56px 48px;
+  background: linear-gradient(135deg, rgba(255,92,92,0.1) 0%, rgba(20,184,166,0.06) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.article-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255,92,92,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  position: relative;
+}
+.article-cta p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+.article-cta-btns {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn-coral {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 36px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-coral:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.btn-glass {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 32px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-glass:hover { transform: translateY(-2px); background: rgba(255,255,255,0.1); }
+
+/* ═══════════════════════════════ RELATED POSTS */
+.related-posts {
+  padding: 64px 0 0;
+  border-top: 1px solid var(--border);
+}
+.related-posts h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 36px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+.related-card-placeholder {
+  width: 100%; aspect-ratio: 16/7;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bg-mid) 0%, rgba(20,184,166,0.06) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+.related-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.related-card p {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════ PROGRESS BAR */
+#read-progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--teal));
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════ FOOTER */
+footer a { color: var(--teal); }
+
+/* ═══════════════════════════════ RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .article-hero { padding-top: 72px; }
+  .article-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div id="read-progress"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../logo.png" alt="King Klaw" style="width:36px;height:36px;border-radius:6px;">
+      King Klaw
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../#what-is">Platform</a></li>
+      <li><a href="../#how">How It Works</a></li>
+      <li><a href="../#marketplace">Skills</a></li>
+      <li><a href="../#industries">Industries</a></li>
+      <li><a href="../#pricing">Pricing</a></li>
+      <li><a href="../blog/" class="active">Blog</a></li>
+    </ul>
+    <a href="../#cta" class="nav-cta">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="../#what-is" onclick="closeMob()">Platform</a>
+  <a href="../#how" onclick="closeMob()">How It Works</a>
+  <a href="../#marketplace" onclick="closeMob()">Skills</a>
+  <a href="../#pricing" onclick="closeMob()">Pricing</a>
+  <a href="../blog/" onclick="closeMob()">Blog</a>
+  <a href="../#cta" onclick="closeMob()" style="display:inline-flex;align-items:center;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,#ff5c5c,#e64d4d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;">Get Started</a>
+</div>
+
+<!-- Hero Image -->
+<div class="article-hero">
+  <div class="article-hero-img-wrap">
+    <img
+      src="allied-health-hero.png"
+      alt="Dr. Priya Sharma at the reception of Northside Allied Health clinic in Chermside"
+      class="article-hero-img"
+    />
+  </div>
+</div>
+
+<!-- Article -->
+<div class="container">
+
+  <!-- Article Header -->
+  <div class="article-header">
+    <a href="../blog/" class="back-link">
+      ← Back to Blog
+    </a>
+    <div class="article-tags">
+      <span class="tag">Case Study</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Allied Health</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Brisbane</span>
+    </div>
+    <h1 class="article-title">How a Brisbane Allied Health Clinic Reduced No-Shows by 60%</h1>
+    <div class="article-meta">
+      <div class="article-author">
+        <div class="author-avatar">👑</div>
+        <div>
+          <div class="author-name">King Klaw Team</div>
+          <div class="author-role">kingklaw.com.au</div>
+        </div>
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        19 March 2026
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        9 min read
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="article-layout">
+
+    <!-- Main content -->
+    <article class="article-body">
+
+      <p>
+        It's 8:30pm on a Wednesday and the last practitioner at Northside Allied Health has finally switched off her room light. But Dr. Priya Sharma is still at the front desk, working through a stack of NDIS progress notes that her speech pathologist didn't have time to finish during the day.
+      </p>
+
+      <p>
+        This is the job no one tells you about when you open a clinic.
+      </p>
+
+      <p>
+        Priya runs Northside Allied Health in Chermside — a four-practitioner practice covering physiotherapy, occupational therapy, psychology, and speech pathology. She built it over seven years into one of the busier independent allied health clinics on Brisbane's northside. The caseload is strong. The practitioners are excellent. The NDIS work is meaningful and well-funded.
+      </p>
+
+      <p>
+        And yet, every week, a significant portion of that funding evaporates.
+      </p>
+
+      <p>
+        "We had an 18% no-show rate," Priya told us. "That sounds like a statistic, but for us it was $3,600 a week in empty appointment slots. Multiply that out and it's nearly $190,000 a year just… gone."
+      </p>
+
+      <h2 id="problem">The Five Problems That Were Eating the Clinic</h2>
+
+      <p>
+        The no-show rate was the headline number, but it wasn't the only thing going wrong. To understand where OpenClaw made the biggest difference, you need to see the full picture.
+      </p>
+
+      <h3>1. Appointment Reminders Done Manually</h3>
+      <p>
+        Northside's practice manager, Bec, was spending roughly six hours a day on appointment reminders, referral chasing, and phone callbacks. For a four-room clinic, that's an extraordinary proportion of her day consumed by work that, in theory, doesn't require a human.
+      </p>
+      <p>
+        "We'd send a reminder the day before by SMS, but if patients didn't respond, Bec would call them. Then if they didn't pick up, she'd try again. Some days she'd make sixty calls before 11am," Priya explains. "It was relentless."
+      </p>
+
+      <h3>2. NDIS Progress Notes: Three Hours Each</h3>
+      <p>
+        For NDIS participants, progress notes aren't optional. The <a href="https://www.ndiscommission.gov.au" class="link-grow" target="_blank" rel="noopener">NDIS Quality and Safeguards Commission</a> requires detailed, goal-referenced documentation for every session. Northside's practitioners were spending three to four hours per note — work that was invariably happening after hours because there simply wasn't time during the clinical day.
+      </p>
+      <p>
+        "My OT was brilliant with her clients. But she was burning out on paperwork," Priya says. "I nearly lost her because of it. You can't build a practice on practitioners who dread coming to work."
+      </p>
+
+      <h3>3. New Patient Onboarding: 45 Minutes of Admin Per Arrival</h3>
+      <p>
+        First appointments at an allied health clinic involve a lot of paperwork — intake forms, health history questionnaires, privacy consent under Australia's <strong>Privacy Act 1988</strong> (health information is classified as sensitive information under the Act, requiring explicit consent for collection and use), Medicare and NDIS funding declarations, and AHPRA-compliant disclosure of practitioner registration details. At Northside, this process was happening on paper, at the front desk, while the patient sat in the waiting room and the practitioner waited.
+      </p>
+      <p>
+        Forty-five minutes per new patient. Every single one.
+      </p>
+
+      <h3>4. Waitlist Management: Hours to Fill a Cancellation</h3>
+      <p>
+        When a patient cancelled — especially same-day — Bec would work through a manual waitlist spreadsheet, calling patients one by one until she found someone who could come in. On a good day, she'd fill the slot. On a busy day, by the time she got through the list, the appointment window had passed.
+      </p>
+
+      <h3>5. Referral Chasing With No System</h3>
+      <p>
+        Allied health practices live on GP and specialist referrals. At Northside, managing these — chasing updated referrals before they expired, following up on new patient referrals, coordinating care plans with referring GPs — was entirely manual. It happened when Bec had time, which was rarely, and slipped through the cracks more often than Priya was comfortable admitting.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">18%</div>
+          <div class="stats-callout-label">No-show rate</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">$3,600</div>
+          <div class="stats-callout-label">Lost revenue per week</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">6hrs</div>
+          <div class="stats-callout-label">Daily admin for practice manager</div>
+        </div>
+      </div>
+
+      <h2 id="discovery">The Decision to Automate</h2>
+
+      <p>
+        Priya wasn't looking for an AI platform. She was looking for a solution to a very specific problem: the no-show rate. She'd already tried standard SMS reminder tools and found them either too rigid or too expensive relative to what they actually did.
+      </p>
+
+      <p>
+        A referral from another Brisbane clinic owner led her to King Klaw and the OpenClaw platform in January 2026.
+      </p>
+
+      <p>
+        "The difference from other tools was that it wasn't just a reminder system," she says. "OpenClaw is an AI agent infrastructure — it can handle the whole sequence, respond to replies, escalate to a human if needed, and learn what works for your patient population over time. That's not what I expected to find."
+      </p>
+
+      <p>
+        Her other concern was compliance. Health data in Australia is subject to the most stringent tier of privacy protections under the Privacy Act — sensitive information provisions that go well beyond what applies to ordinary personal data. NDIS work adds another layer of requirements via the NDIS Quality and Safeguards Commission. And AHPRA-regulated practitioners carry professional obligations around record-keeping and communication that can't be outsourced to a tool that doesn't understand the regulatory context.
+      </p>
+
+      <p>
+        "I needed to know it understood Australian healthcare compliance before I was willing to put patient communications through it," Priya says. "That was my non-negotiable."
+      </p>
+
+      <h2 id="deployment">The Deployment: Built Around Cliniko</h2>
+
+      <p>
+        Northside Allied Health runs on Cliniko, the practice management software used by the majority of Australian allied health clinics. OpenClaw's native Cliniko integration was a significant factor in Priya's decision — it meant the AI could read appointment schedules, patient records, and waitlist data directly, without a parallel manual system or data re-entry.
+      </p>
+
+      <p>
+        The King Klaw onboarding team spent three days mapping Northside's workflows before any automation went live. This is by design — OpenClaw is not a plug-and-play tool that starts doing things the moment you connect it. It's configured to your specific practice, your communication style, your patient population, and your compliance requirements.
+      </p>
+
+      <div class="highlight-box">
+        <div class="highlight-box-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          What was deployed in the first two weeks
+        </div>
+        <ul>
+          <li>Automated reminder sequences — SMS at 72 hours, 24 hours, and 2 hours pre-appointment, with two-way reply handling</li>
+          <li>Cliniko waitlist integration — cancellations trigger immediate automated outreach to the waitlist, prioritised by urgency and availability</li>
+          <li>Digital intake forms — sent automatically upon booking, completed online before arrival, synced directly to Cliniko</li>
+          <li>NDIS progress note templates — pre-populated from session note inputs, structured to NDIS Quality and Safeguards Commission standards</li>
+          <li>Referral tracking — automated expiry alerts and follow-up sequences for outstanding GP referrals</li>
+        </ul>
+      </div>
+
+      <p>
+        OpenClaw's March 2026 platform update introduced improved multi-agent routing — the ability to pass a task between specialised agents depending on what's needed. For Northside, this meant the system could handle a patient reply to a reminder ("I need to reschedule") by routing it first to a scheduling agent that checks availability, then to a communication agent that sends appropriate options, then back to Cliniko to update the booking — all without Bec being involved unless the patient had a complex situation that genuinely required a human.
+      </p>
+
+      <h2 id="results">The Results at 90 Days</h2>
+
+      <p>
+        We spoke with Priya three months after go-live. The numbers were striking.
+      </p>
+
+      <h3>No-Shows: 18% Down to 7%</h3>
+      <p>
+        The three-stage reminder sequence — combined with two-way handling of replies — moved the needle significantly. Patients who previously forgot, or meant to reschedule but didn't get around to it, were now engaging with the reminders. The system's ability to handle rescheduling requests in the same message thread removed the friction that previously let appointments lapse.
+      </p>
+      <p>
+        The no-show rate dropped from 18% to 7%. That's <strong>$2,200 per week recovered in previously lost appointment revenue</strong>. Over a year, that's more than $114,000 — from a single operational change.
+      </p>
+
+      <h3>NDIS Progress Notes: Minutes, Not Hours</h3>
+      <p>
+        This was the result that surprised Priya most. The NDIS progress note template system works by having practitioners dictate or type brief session notes immediately after each appointment — the sort of shorthand notes they were already making. OpenClaw then expands these into structured, goal-referenced progress notes formatted to NDIS Quality and Safeguards Commission requirements, ready for practitioner review and sign-off.
+      </p>
+      <p>
+        "What used to take three hours now takes fifteen minutes," Priya says. "My OT reviews it, makes edits, signs off. The thinking is still hers — the structure and the writing is done. It's a completely different job."
+      </p>
+      <p>
+        The reduction in after-hours work has had a measurable effect on practitioner retention and wellbeing. Priya's speech pathologist, who had been looking at other roles, is no longer considering leaving.
+      </p>
+
+      <h3>New Patient Onboarding: Zero Admin on Arrival</h3>
+      <p>
+        Digital intake forms, sent automatically at booking confirmation and completed online in advance, eliminated the 45-minute paper process entirely. New patients arrive having already submitted their health history, privacy consents, Medicare details, and funding information. The practitioner's first interaction with them is clinical, not administrative.
+      </p>
+      <p>
+        "Our first appointments run about 15 minutes shorter now," Priya notes. "Which means we can see more patients, or give existing patients longer sessions. Either way it's better."
+      </p>
+
+      <h3>Bec: From Six Hours of Admin to Three</h3>
+      <p>
+        Bec's daily workload changed materially. The reminder calls, the waitlist phone tag, the intake form processing, and most of the referral tracking is now handled by the system. She still manages exceptions, complex patient situations, and anything that genuinely requires human judgement. But roughly three hours of her day have been returned.
+      </p>
+      <p>
+        Priya redirected that capacity to something she'd been meaning to do for two years: a systematic audit of Northside's Medicare billing. Working with their accountant, Bec identified <strong>$8,000 per month in previously unbilled or under-billed items</strong> — legitimate claims that had been missed simply because no one had time to check.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">7%</div>
+          <div class="stats-callout-label">No-show rate (down from 18%)</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">15 min</div>
+          <div class="stats-callout-label">NDIS notes (was 3 hours)</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">22x</div>
+          <div class="stats-callout-label">ROI in month three</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"I nearly lost a practitioner to paperwork burnout. That alone was worth the entire deployment."</p>
+        <cite>— Dr. Priya Sharma, Principal, Northside Allied Health</cite>
+      </div>
+
+      <h2 id="financials">The Full Financial Picture</h2>
+
+      <p>
+        When you add up the quantifiable monthly benefits, the number is significant.
+      </p>
+
+      <ul>
+        <li><strong>Recovered appointment revenue</strong> (no-show reduction): ~$9,500/month</li>
+        <li><strong>Reclaimed billing revenue</strong> (previously unbilled Medicare/NDIS items): ~$8,000/month</li>
+        <li><strong>Capacity gain</strong> from faster onboarding and shorter admin overhead: ~$500/month equivalent in additional appointments</li>
+      </ul>
+
+      <p>
+        Total monthly benefit: approximately <strong>$18,000</strong>. Against the Professional tier subscription cost, that's a 22x return on investment — measurable by month three of deployment.
+      </p>
+
+      <p>
+        "I went in hoping to fix the no-shows," Priya says. "I didn't expect it to surface $8,000 a month in billing we were leaving on the table. That was a complete surprise."
+      </p>
+
+      <h2 id="openclaw-features">The OpenClaw Features That Matter for Allied Health</h2>
+
+      <p>
+        OpenClaw's March 2026 release included several updates with direct relevance to healthcare operators in Australia.
+      </p>
+
+      <h3>Australian Healthcare Compliance Module</h3>
+      <p>
+        OpenClaw's Australian compliance skill set includes awareness of Privacy Act sensitive information obligations, AHPRA registration and disclosure requirements, and NDIS Quality and Safeguards Commission documentation standards. This matters because the stakes in healthcare are different — a communication that inadvertently discloses a patient's condition, or a progress note that doesn't meet NDIS standards, carries real regulatory and professional consequences.
+      </p>
+      <p>
+        All patient-facing communications are templated within compliance-aware parameters. The NDIS progress note generation is structured specifically around the NDIS Practice Standards. The intake form system captures the mandatory Privacy Act consents correctly.
+      </p>
+
+      <h3>Cliniko Native Integration</h3>
+      <p>
+        Cliniko is the dominant practice management system for Australian allied health. OpenClaw's native integration means it reads appointment schedules, waitlists, and patient records directly — no manual exports, no parallel systems, no data entry. When a patient reschedules via a reminder reply, the change is reflected in Cliniko automatically.
+      </p>
+
+      <h3>Multi-Agent Task Routing</h3>
+      <p>
+        The March 2026 update to OpenClaw's routing system improved how tasks are handed off between specialised agents. For a clinical environment, where a single patient interaction can involve scheduling, billing, documentation, and compliance steps, this matters. The system routes each component of a task to the right agent, with full context carried through the handoff. Bec gets a clean summary; the patient gets a coherent experience.
+      </p>
+
+      <h3>The 400+ Skill Marketplace</h3>
+      <p>
+        OpenClaw's modular skill architecture meant King Klaw could assemble the right combination for Northside's specific workflows — the Cliniko integration, the NDIS documentation skill, the Australian privacy compliance module, the waitlist management skill — without building custom software. Each skill is maintained and updated as a discrete unit. When the NDIS Commission updates its documentation standards, the skill updates accordingly.
+      </p>
+
+      <h2 id="honest-take">The Honest Take</h2>
+
+      <p>
+        We asked Priya about what didn't work as expected.
+      </p>
+
+      <p>
+        "The waitlist automation took longer to calibrate than I thought," she says. "In the first two weeks, we had a few situations where a patient was contacted about a slot that was actually already filled, because of a timing lag between the cancellation and the system's view of availability. We sorted it out, but it meant a couple of awkward calls."
+      </p>
+
+      <p>
+        She also notes that the NDIS note templates required several rounds of refinement to match the documentation style her specific practitioners were comfortable signing off on. "It wasn't one-and-done. We spent about three weeks dialling in the templates. But once they were right, they were right."
+      </p>
+
+      <p>
+        The most important caveat: the AI generates, the practitioners sign. Every NDIS progress note still goes through practitioner review before submission. "I'd never send a note that a practitioner hasn't read and approved," Priya says. "That's their professional obligation under AHPRA. The AI draft is a starting point — a very good starting point — but the clinical judgement stays with the clinician."
+      </p>
+
+      <h2 id="takeaway">What Allied Health Operators Should Know</h2>
+
+      <p>
+        If you run an allied health clinic in Australia and you're reading this with the familiar knot of recognition — the no-show rate, the NDIS paperwork pile, the practice manager running on empty — this is probably not as far away as it sounds.
+      </p>
+
+      <p>
+        The complexity that makes allied health feel unsuitable for automation — the NDIS compliance, the AHPRA requirements, the Privacy Act obligations — is exactly what King Klaw's OpenClaw deployment is built to handle. The platform understands the Australian regulatory context because it was built for it.
+      </p>
+
+      <p>
+        Priya's advice to any clinic considering it: "Don't try to automate everything at once. Start with the reminder sequences and the waitlist. Get those working. Then tackle the documentation. The ROI compounds — it's not just one thing getting better, it's everything getting better at the same time."
+      </p>
+
+      <p>
+        Northside Allied Health is now looking at extending the deployment into their psychology practice — a more complex clinical environment with stricter confidentiality requirements and longer-form documentation. King Klaw is currently scoping what that looks like.
+      </p>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="article-sidebar">
+
+      <!-- Table of contents -->
+      <div class="sidebar-card">
+        <h4>In This Story</h4>
+        <nav class="sidebar-toc" id="toc">
+          <a href="#problem">The Five Problems</a>
+          <a href="#discovery">The Decision to Automate</a>
+          <a href="#deployment">The Deployment</a>
+          <a href="#results">The Results</a>
+          <a href="#financials">The Financial Picture</a>
+          <a href="#openclaw-features">Key Features</a>
+          <a href="#honest-take">The Honest Take</a>
+          <a href="#takeaway">What Clinics Should Know</a>
+        </nav>
+      </div>
+
+      <!-- Share -->
+      <div class="sidebar-card">
+        <h4>Share This Story</h4>
+        <div class="share-buttons">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://kingklaw.com.au/blog/2026-03-19-allied-health-clinic-reduced-no-shows-by-60-percent.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=How+a+Brisbane+allied+health+clinic+cut+no-shows+by+60%25+with+OpenClaw+AI&url=https://kingklaw.com.au/blog/2026-03-19-allied-health-clinic-reduced-no-shows-by-60-percent.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.85L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X (Twitter)
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copied!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-cta">
+        <h4>Ready to cut your no-show rate?</h4>
+        <p>Book a free 30-minute demo. We'll show you exactly how OpenClaw would work for your clinic — including the Cliniko integration.</p>
+        <a href="../#cta" class="sidebar-cta-btn">Book a Free Demo →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Article CTA -->
+  <div class="article-cta">
+    <h2>Ready to recover $18,000 a month?</h2>
+    <p>Book a free demo and we'll show you exactly how OpenClaw fits your clinic — no generic demos, no pressure.</p>
+    <div class="article-cta-btns">
+      <a href="../#cta" class="btn-coral">Book a Free Demo →</a>
+      <a href="../#pricing" class="btn-glass">See Pricing</a>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h3>More from the blog</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-card-placeholder">🏡</div>
+        <a href="2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html" style="text-decoration:none;">
+          <span class="tag" style="margin-bottom:12px;display:inline-flex;">Case Study</span>
+          <h4>How a Brisbane Mortgage Broker Saved 12 Hours a Week With OpenClaw</h4>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">Sarah Chen's Fortitude Valley brokerage was drowning in admin. Here's what changed.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">⚖️</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>How a Brisbane Law Firm Cut Document Review Time by 60%</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A 4-partner firm shares how AI-assisted contract review changed their billing model.</p>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">🏠</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>The Real Estate Agency That Never Misses an After-Hours Enquiry</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A Gold Coast agency on automating weekend enquiries and buyer pre-qualification.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer style="border-top:1px solid var(--border); padding:60px 0 40px; margin-top:80px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;" class="footer-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:16px;">
+          <span style="animation:lobster-pulse 3s ease-in-out infinite;">👑🦞</span> King Klaw
+        </div>
+        <p style="font-size:14px; color:var(--text-muted); max-width:280px; line-height:1.7;">OpenClaw, deployed for Australian businesses. Premium AI infrastructure for the industries that keep the country moving.</p>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#what-is" class="link-grow" style="font-size:14px;">Platform</a>
+          <a href="../#marketplace" class="link-grow" style="font-size:14px;">Marketplace</a>
+          <a href="../#pricing" class="link-grow" style="font-size:14px;">Pricing</a>
+          <a href="../#how" class="link-grow" style="font-size:14px;">How It Works</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Industries</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Mortgage Brokers</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Law Firms</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Real Estate</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Accounting</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Company</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../blog/" class="link-grow" style="font-size:14px;">Blog</a>
+          <a href="mailto:hello@kingklaw.com.au" class="link-grow" style="font-size:14px;">Contact</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Privacy Policy</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div style="font-size:13px; color:var(--text-muted);">© 2026 King Klaw Pty Ltd. All rights reserved. ABN TBC. Brisbane, Australia.</div>
+      <div style="font-size:13px; color:var(--text-muted);">Powered by <a href="https://github.com/openclaw" class="link-grow">OpenClaw</a> open-source platform.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── Mobile menu ── */
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+
+/* ── Reading progress bar ── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('read-progress').style.width = progress + '%';
+});
+
+/* ── TOC active state on scroll ── */
+const headings = document.querySelectorAll('article h2[id], article h3[id]');
+const tocLinks = document.querySelectorAll('#toc a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+headings.forEach(h => observer.observe(h));
+
+/* ── Responsive footer grid ── */
+function checkFooter() {
+  const fg = document.querySelector('.footer-grid');
+  if (fg) {
+    fg.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr 1fr' : '2fr 1fr 1fr 1fr';
+  }
+}
+checkFooter();
+window.addEventListener('resize', checkFooter);
+</script>
+</body>
+</html>

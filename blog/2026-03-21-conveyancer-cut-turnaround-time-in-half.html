@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How a Sydney Conveyancer Cut Settlement Turnaround Time in Half — King Klaw</title>
+  <meta name="description" content="James Kowalski was working until 9pm every night chasing documents and sending status updates. After deploying OpenClaw through King Klaw, he halved settlement turnaround time and added 15 new matters in three months." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How a Sydney Conveyancer Cut Settlement Turnaround Time in Half" />
+  <meta property="og:description" content="James Kowalski was working until 9pm every night chasing documents and sending status updates. After deploying OpenClaw, turnaround time halved and revenue grew by $45K." />
+  <meta property="og:image" content="https://kingklaw.com.au/blog/conveyancer-hero.png" />
+  <meta property="og:url" content="https://kingklaw.com.au/blog/2026-03-21-conveyancer-cut-turnaround-time-in-half.html" />
+  <meta property="article:published_time" content="2026-03-21" />
+  <meta property="article:author" content="King Klaw Team" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How a Sydney Conveyancer Cut Settlement Turnaround Time in Half" />
+  <meta name="twitter:description" content="Real results from a solo conveyancer handling 60 matters a month in Parramatta." />
+  <meta name="twitter:image" content="https://kingklaw.com.au/blog/conveyancer-hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════ TOKENS */
+:root {
+  --coral:       #ff5c5c;
+  --coral-glow:  rgba(255,92,92,0.35);
+  --coral-dim:   rgba(255,92,92,0.12);
+  --teal:        #14b8a6;
+  --teal-glow:   rgba(20,184,166,0.35);
+  --teal-dim:    rgba(20,184,166,0.12);
+  --bg:          #0a0e17;
+  --bg-mid:      #0d1322;
+  --bg-card:     rgba(255,255,255,0.04);
+  --bg-glass:    rgba(255,255,255,0.06);
+  --border:      rgba(255,255,255,0.08);
+  --border-hi:   rgba(255,255,255,0.14);
+  --text:        #e2e8f0;
+  --text-muted:  #8898aa;
+  --white:       #ffffff;
+  --radius:      16px;
+  --radius-lg:   24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════ UTILITIES */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+a { text-decoration: none; color: inherit; }
+
+.grad-text {
+  background: linear-gradient(135deg, var(--coral) 0%, #ff8c69 40%, var(--teal) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: grad-hue 6s linear infinite;
+}
+@keyframes grad-hue {
+  0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral);
+  background: var(--coral-dim);
+  border: 1px solid rgba(255,92,92,0.25);
+  padding: 5px 14px; border-radius: 100px;
+}
+.tag-teal {
+  color: var(--teal);
+  background: var(--teal-dim);
+  border-color: rgba(20,184,166,0.25);
+}
+
+a.link-grow {
+  position: relative;
+  color: var(--teal);
+  text-decoration: none;
+}
+a.link-grow::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0%; height: 1px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+a.link-grow:hover::after { width: 100%; }
+
+/* ═══════════════════════════════ NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 28px;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+#nav.scrolled {
+  background: rgba(10,14,23,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px; font-weight: 800; color: #fff;
+  text-decoration: none;
+}
+.nav-logo img {
+  filter: drop-shadow(0 0 10px rgba(255,92,92,0.6));
+  animation: logo-glow 3s ease-in-out infinite;
+}
+@keyframes logo-glow {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)) drop-shadow(0 0 20px rgba(255,92,92,0.3)); }
+  50%     { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)) drop-shadow(0 0 40px rgba(255,92,92,0.5)); }
+}
+@keyframes lobster-pulse {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)); }
+  50%      { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)); }
+}
+.nav-links {
+  display: flex; align-items: center; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-muted);
+  transition: color 0.15s; text-decoration: none;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-cta {
+  margin-left: 12px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 26px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  text-decoration: none;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: all 0.2s;
+}
+.mob-menu {
+  display: none; position: fixed; inset: 0; top: 72px; z-index: 199;
+  background: var(--bg);
+  padding: 36px 28px;
+  flex-direction: column; gap: 28px;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a { font-size: 22px; font-weight: 600; color: #fff; text-decoration: none; }
+
+/* ═══════════════════════════════ ARTICLE HERO */
+.article-hero {
+  padding-top: 100px;
+  position: relative;
+}
+.article-hero-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.article-hero-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.article-hero-img-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════ ARTICLE LAYOUT */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  padding: 0 0 120px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { order: -1; }
+}
+
+/* ═══════════════════════════════ ARTICLE HEADER */
+.article-header {
+  padding: 48px 0 40px;
+}
+.article-header .back-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-bottom: 28px;
+}
+.article-header .back-link:hover { color: var(--teal); }
+.article-tags {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.article-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.article-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 14px; font-weight: 600; color: #fff;
+}
+.author-role {
+  font-size: 12px; color: var(--text-muted);
+}
+.article-meta-divider {
+  width: 1px; height: 32px; background: var(--border);
+}
+.article-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ═══════════════════════════════ ARTICLE BODY */
+.article-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.article-body p {
+  margin-bottom: 24px;
+}
+.article-body h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 52px 0 20px;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 36px 0 16px;
+}
+.article-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+.article-body a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body ul, .article-body ol {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.article-body li {
+  margin-bottom: 10px;
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--coral);
+  padding: 24px 32px;
+  margin: 40px 0;
+  background: var(--coral-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pull-quote p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 12px !important;
+}
+.pull-quote cite {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Stats callout */
+.stats-callout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+@media (max-width: 600px) { .stats-callout { grid-template-columns: 1fr; } }
+.stats-callout-item {
+  text-align: center;
+  padding: 16px;
+}
+.stats-callout-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stats-callout-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: var(--teal-dim);
+  border: 1px solid rgba(20,184,166,0.25);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.highlight-box-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.highlight-box p {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.highlight-box ul {
+  margin-bottom: 0;
+}
+.highlight-box li {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════ SIDEBAR */
+.article-sidebar {
+  position: sticky;
+  top: 100px;
+}
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.sidebar-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.sidebar-toc a {
+  display: block;
+  font-size: 14px; color: var(--text-muted);
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sidebar-toc a:last-child { border-bottom: none; }
+.sidebar-toc a:hover { color: var(--teal); padding-left: 6px; }
+.sidebar-toc a.active { color: var(--coral); padding-left: 6px; }
+
+.share-buttons {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.share-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.share-btn:hover { border-color: var(--border-hi); background: var(--bg-glass); color: #fff; }
+.share-btn svg { flex-shrink: 0; }
+
+/* CTA Sidebar */
+.sidebar-cta {
+  background: linear-gradient(135deg, rgba(255,92,92,0.12) 0%, rgba(20,184,166,0.08) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+}
+.sidebar-cta h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.sidebar-cta p {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.sidebar-cta-btn {
+  display: block;
+  padding: 13px 20px; border-radius: 10px;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px var(--coral-glow);
+}
+.sidebar-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--coral-glow); }
+
+/* ═══════════════════════════════ ARTICLE CTA */
+.article-cta {
+  margin: 64px 0 0;
+  padding: 56px 48px;
+  background: linear-gradient(135deg, rgba(255,92,92,0.1) 0%, rgba(20,184,166,0.06) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.article-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255,92,92,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  position: relative;
+}
+.article-cta p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+.article-cta-btns {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn-coral {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 36px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-coral:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.btn-glass {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 32px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-glass:hover { transform: translateY(-2px); background: rgba(255,255,255,0.1); }
+
+/* ═══════════════════════════════ RELATED POSTS */
+.related-posts {
+  padding: 64px 0 0;
+  border-top: 1px solid var(--border);
+}
+.related-posts h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 36px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+.related-card-placeholder {
+  width: 100%; aspect-ratio: 16/7;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bg-mid) 0%, rgba(20,184,166,0.06) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+.related-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.related-card p {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════ PROGRESS BAR */
+#read-progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--teal));
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════ FOOTER */
+footer a { color: var(--teal); }
+
+/* ═══════════════════════════════ RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .article-hero { padding-top: 72px; }
+  .article-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div id="read-progress"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../logo.png" alt="King Klaw" style="width:36px;height:36px;border-radius:6px;">
+      King Klaw
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../#what-is">Platform</a></li>
+      <li><a href="../#how">How It Works</a></li>
+      <li><a href="../#marketplace">Skills</a></li>
+      <li><a href="../#industries">Industries</a></li>
+      <li><a href="../#pricing">Pricing</a></li>
+      <li><a href="../blog/" class="active">Blog</a></li>
+    </ul>
+    <a href="../#cta" class="nav-cta">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="../#what-is" onclick="closeMob()">Platform</a>
+  <a href="../#how" onclick="closeMob()">How It Works</a>
+  <a href="../#marketplace" onclick="closeMob()">Skills</a>
+  <a href="../#pricing" onclick="closeMob()">Pricing</a>
+  <a href="../blog/" onclick="closeMob()">Blog</a>
+  <a href="../#cta" onclick="closeMob()" style="display:inline-flex;align-items:center;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,#ff5c5c,#e64d4d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;">Get Started</a>
+</div>
+
+<!-- Hero Image -->
+<div class="article-hero">
+  <div class="article-hero-img-wrap">
+    <img
+      src="conveyancer-hero.png"
+      alt="A conveyancer reviewing settlement documents at a modern Sydney law office"
+      class="article-hero-img"
+    />
+  </div>
+</div>
+
+<!-- Article -->
+<div class="container">
+
+  <!-- Article Header -->
+  <div class="article-header">
+    <a href="../blog/" class="back-link">
+      ← Back to Blog
+    </a>
+    <div class="article-tags">
+      <span class="tag">Case Study</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Conveyancing</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Sydney</span>
+    </div>
+    <h1 class="article-title">How a Sydney Conveyancer Cut Settlement Turnaround Time in Half</h1>
+    <div class="article-meta">
+      <div class="article-author">
+        <div class="author-avatar">👑</div>
+        <div>
+          <div class="author-name">King Klaw Team</div>
+          <div class="author-role">kingklaw.com.au</div>
+        </div>
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        21 March 2026
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        9 min read
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="article-layout">
+
+    <!-- Main content -->
+    <article class="article-body">
+
+      <p>
+        It's 8:47pm on a Wednesday, and James Kowalski is still at his desk in Parramatta. He's been here since 7:30 this morning. His admin assistant, Priya, clocked off at five. Somewhere on his second screen there's a chain of fourteen unanswered emails, all variations of the same question: <em>Where is my settlement at?</em>
+      </p>
+
+      <p>
+        James knows the answers. He just hasn't had time to write them.
+      </p>
+
+      <p>
+        He runs a solo conveyancing practice — one of the better ones in Western Sydney, if the client referrals are anything to go by. At peak he handles 60 matters a month, covering residential purchases and sales across the greater Sydney basin. He's thorough, he's meticulous, and he's genuinely good at the work. But somewhere between volume and compliance and the relentless expectation that clients will hear from him within a day, the job had started to eat him alive.
+      </p>
+
+      <p>
+        "I got into conveyancing because I like the detail of property law," he told us. "What I didn't sign up for was spending my entire morning chasing people for contracts and the other half of my day explaining to those same people why I hadn't called yet."
+      </p>
+
+      <h2 id="problem">The Four Pressure Points</h2>
+
+      <p>
+        To understand the transformation that followed, you need to understand exactly where James's time was going — and why it mattered so much.
+      </p>
+
+      <h3>1. Client Status Update Emails</h3>
+      <p>
+        Conveyancing clients are anxious clients. A property purchase or sale is often the largest financial transaction of their lives, and they want to know what's happening — constantly. James was spending an average of two hours every day writing status update emails. Not complex legal advice. Just: <em>Your contract has been received. We're awaiting the Section 10.7 certificate. Your settlement is confirmed for next Thursday.</em>
+      </p>
+      <p>
+        "It's not difficult work," he says. "It's just relentless. And every hour I spent on status updates was an hour I wasn't doing actual conveyancing."
+      </p>
+
+      <h3>2. Document Chasing</h3>
+      <p>
+        Before a matter can progress, James needs documents — signed contracts, Section 32 vendor statements, council rate certificates, strata inspection reports, title searches. Getting clients and agents to supply these documents on time is, in the polite phrasing of the industry, a challenge. James was personally following up on outstanding documents every morning, working through a mental list that was perpetually longer than his patience.
+      </p>
+      <p>
+        In practice, this meant entire mornings consumed by document administration. Matters that should take three weeks were stretching to five or six because a buyer's solicitor hadn't returned a contract, or a vendor hadn't signed the Form 1.
+      </p>
+
+      <h3>3. Compliance Deadlines</h3>
+      <p>
+        NSW conveyancing operates under a framework that includes the Conveyancing Act 1919, the Real Property Act, and the Law Society of New South Wales's conduct rules. Miss a cooling-off period. Overlook a requisition deadline. Fail to lodge a Notice of Sale within the required window. The consequences range from professional embarrassment to regulatory sanction to personal liability.
+      </p>
+      <p>
+        James tracked his deadlines manually, across a combination of a matter management system, calendar reminders, and a physical diary that he'd been using since 2018. It worked, mostly. But "mostly" is a word that keeps conveyancers awake at night.
+      </p>
+      <p>
+        "I'd had two near-misses in the twelve months before I found King Klaw," he admits. "Nothing resulted in a complaint. But I knew my luck wasn't infinite."
+      </p>
+
+      <h3>4. Response Time</h3>
+      <p>
+        The cumulative effect of all of the above was a response time that had blown out to 24–48 hours for basic enquiries. Clients who asked a simple question on Monday morning might not hear back until Wednesday afternoon. In an industry where the client relationship is everything — where every referral is a vote of confidence — this was quietly eroding the reputation he'd spent years building.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">2hrs</div>
+          <div class="stats-callout-label">Daily on status emails</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">48hrs</div>
+          <div class="stats-callout-label">Avg. client response time</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">2</div>
+          <div class="stats-callout-label">Near-miss deadline breaches</div>
+        </div>
+      </div>
+
+      <h2 id="discovery">Finding King Klaw</h2>
+
+      <p>
+        James didn't go looking for an AI solution. He went looking for a way to sleep before midnight.
+      </p>
+
+      <p>
+        He'd looked at practice management upgrades, considered hiring a second admin, and briefly investigated a document automation tool that promised to cut his contract prep time by half (it didn't). Then, at a Law Society of NSW professional development afternoon in late 2025, he overheard a colleague from a mid-sized firm mention that they'd deployed an AI assistant across their conveyancing team.
+      </p>
+
+      <p>
+        "I was sceptical," he says. "I'd tried generic AI chatbots and they were useless for anything specific to NSW property law. They'd give me American advice, or they'd hallucinate Act references. I needed something that actually understood what I do."
+      </p>
+
+      <p>
+        He booked a demo with King Klaw two days later. The demo was specific — not a generic "AI can do anything" pitch, but a walkthrough of exactly how OpenClaw would integrate with his matter management workflow, handle his document chase sequences, and track his compliance calendar. He signed up the same week.
+      </p>
+
+      <h2 id="deployment">The Deployment: Getting OpenClaw Into the Workflow</h2>
+
+      <p>
+        James was on the Professional package. The King Klaw team spent the first week mapping his existing processes in detail — not what he thought his processes were, but what they actually were. That distinction matters more than people realise.
+      </p>
+
+      <p>
+        "They asked me to walk them through a matter from instruction to settlement," he says. "Every touchpoint, every communication, every document request, every deadline trigger. By the end of it I'd learned things about my own workflow that I hadn't consciously noticed before."
+      </p>
+
+      <div class="highlight-box">
+        <div class="highlight-box-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          What was configured in week one
+        </div>
+        <ul>
+          <li>Automated client update sequences — milestone-triggered emails sent within 2 hours of each matter stage advancing</li>
+          <li>Document chase workflows — three-stage follow-up sequences for contracts, Section 32s, council certificates, and strata reports</li>
+          <li>Compliance calendar — deadline tracking tied to each matter, with escalating alerts as key dates approached</li>
+          <li>Law Society conduct rule reminders — automated prompts for the disclosures and acknowledgements required under NSW guidelines</li>
+          <li>Settlement confirmation sequences — automated day-before and morning-of reminders to all parties</li>
+        </ul>
+      </div>
+
+      <p>
+        The integration with James's existing matter management system took two days. OpenClaw's platform connects via API to the major Australian conveyancing and legal practice management tools, so there was no manual data entry or parallel systems to maintain.
+      </p>
+
+      <p>
+        The March 2026 OpenClaw release also introduced the new <strong>memory plugin</strong> — a layered contextual memory system that allows the AI to maintain persistent knowledge about each matter across every interaction. For James, this meant the system could reference the full history of a matter when composing a client update: when the contract was received, what documents were still outstanding, which requisitions had been raised, when settlement was booked. The emails it generates read as if a knowledgeable human assistant had written them — because the context behind them is genuine.
+      </p>
+
+      <h2 id="results">The Results: Ninety Days Later</h2>
+
+      <p>
+        We spoke with James at the three-month mark. By that point, OpenClaw had processed 1,847 matter-related events, sent 634 automated client updates, initiated 412 document chase sequences, and fired 89 compliance deadline alerts.
+      </p>
+
+      <p>
+        Here's what that translated to in practice.
+      </p>
+
+      <h3>Settlement Turnaround Time</h3>
+      <p>
+        The most striking result was the one James hadn't fully anticipated. By removing the delays caused by slow document collection — the primary bottleneck in any conveyancing matter — average settlement turnaround time dropped from approximately six weeks to under three. Documents that used to take two weeks or more to collect were arriving within three days in 80% of cases, because the automated follow-up sequences ran on a schedule that no human could sustain manually.
+      </p>
+
+      <h3>Client Response Time</h3>
+      <p>
+        The 24–48 hour response time that had been quietly damaging his client relationships dropped to under four hours — and for straightforward status enquiries, the AI was responding within minutes. Clients who sent a query at 10pm now had a substantive answer by the time they woke up. The feedback from clients was immediate and unmistakable.
+      </p>
+      <p>
+        "I had three clients in the first month tell me it was the best conveyancing experience they'd ever had," James says. "Nothing else had changed except the speed of communication. That's how much that one thing matters."
+      </p>
+
+      <h3>Zero Missed Deadlines</h3>
+      <p>
+        In the three months since deployment, James has had zero compliance deadline breaches or near-misses. The automated compliance calendar — which tracks cooling-off expiry dates, requisition response windows, settlement confirmation deadlines, and the Notice of Sale lodgement requirements under NSW legislation — has provided the systematic oversight that his manual diary simply couldn't guarantee at volume.
+      </p>
+      <p>
+        This is not a small thing. Under the Law Society of NSW's conduct rules, practitioners are personally responsible for their compliance record. The risk that James was carrying with his manual tracking system was, in retrospect, significant.
+      </p>
+
+      <h3>Recovered Billable Capacity</h3>
+      <p>
+        The two hours a day James was spending on status update emails effectively vanished from his schedule. Combined with the time saved on document chasing, <strong>each solicitor recovered approximately 8 hours of billable capacity per week</strong>. For James, that freed capacity went directly into taking on new matters rather than working longer hours.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">50%</div>
+          <div class="stats-callout-label">Faster settlement turnaround</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">8hrs</div>
+          <div class="stats-callout-label">Billable capacity recovered/week</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">$45K</div>
+          <div class="stats-callout-label">Added revenue in 3 months</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"I leave the office at 5:30 now. That hasn't happened consistently since I went out on my own."</p>
+        <cite>— James Kowalski, Principal Conveyancer, Kowalski Conveyancing</cite>
+      </div>
+
+      <h3>New Matters and Revenue Growth</h3>
+      <p>
+        With 8 hours a week of newly recovered capacity, James took on 15 additional matters over the three-month period. At his average fee, that translated to approximately $45,000 in additional revenue — from capacity that already existed within his practice, just buried under admin. He didn't hire anyone new. He didn't extend his hours. He removed the friction, and the revenue followed.
+      </p>
+
+      <h2 id="openclaw-features">The OpenClaw Features That Did the Work</h2>
+
+      <p>
+        The results James achieved aren't magic — they're the product of specific platform capabilities that are genuinely well-suited to conveyancing workflows. It's worth being precise about what made the difference.
+      </p>
+
+      <h3>Memory Plugin — Persistent Matter Context</h3>
+      <p>
+        The memory plugin, introduced in OpenClaw's March 2026 update, is what separates this from a simple email automation tool. Rather than sending generic templated messages, the system maintains a rich contextual record of each matter — documents received, outstanding items, key dates, party communications, and matter stage — and uses that context to compose genuinely informative updates. A client asking "where are we up to?" receives a response that references their specific matter, not a placeholder template. The difference in client experience is significant.
+      </p>
+
+      <h3>NemoClaw — Client Data Security</h3>
+      <p>
+        For a conveyancer handling property transactions, client data security is not optional. Contracts, identification documents, financial statements, and title searches all pass through the practice. OpenClaw's NemoClaw security layer provides end-to-end encryption for all client data processed through the platform, with access controls and audit logging that satisfy Australian Privacy Act requirements. James was explicit about this being a non-negotiable: "If it didn't have enterprise-grade data protection I wouldn't have touched it. Property conveyancing involves some of the most sensitive financial data people ever share."
+      </p>
+
+      <h3>Backup CLI — Seven-Year Record Retention</h3>
+      <p>
+        NSW conveyancing practices are required to retain client file records for a minimum of seven years under Law Society guidelines. OpenClaw's backup CLI provides automated, scheduled exports of all matter records, communications, and compliance logs to encrypted off-platform storage. For James, this means his record-keeping obligations are handled systematically rather than being a manual end-of-year exercise. Every document chase sequence, every client update, every compliance alert — all logged, timestamped, and retrievable.
+      </p>
+
+      <h3>Document Chase Workflows</h3>
+      <p>
+        The document chase automation deserves particular attention because it delivered the single biggest impact on turnaround time. OpenClaw's workflow engine runs multi-stage follow-up sequences — an initial polite request, a follow-up after 48 hours, an escalation to the relevant agent or solicitor after 72 — with the persistence and consistency that a human simply cannot maintain across 60 active matters simultaneously. The 80% document receipt rate within three days (versus the two-plus weeks James was previously experiencing) is almost entirely attributable to this.
+      </p>
+
+      <h3>Compliance Calendar</h3>
+      <p>
+        The compliance calendar is perhaps the feature that conveyancers will find most immediately reassuring. Every matter in the system has a set of date-triggered alerts aligned to NSW conveyancing timeframes — cooling-off periods, requisition deadlines, settlement confirmation windows, and Notice of Sale lodgement requirements. These aren't generic reminders; they're calibrated to NSW legislation and the Law Society's conduct obligations. When a deadline is approaching, the system escalates: first a prompt to James, then a more urgent alert, then a flag that requires active acknowledgement before it clears.
+      </p>
+
+      <h2 id="honest-take">What Didn't Go Perfectly</h2>
+
+      <p>
+        James is candid about the first few weeks.
+      </p>
+
+      <p>
+        "The automated emails are very good, but they still need my professional judgement on the more complex matters," he says. "If there's a dispute over a special condition in the contract, the AI will flag that the matter has stalled and prompt a client update — but the content of that update needs to come from me. It's appropriately cautious about the things it shouldn't be deciding on its own."
+      </p>
+
+      <p>
+        He also notes that the initial mapping process — where King Klaw documented his existing workflows — took longer than expected because his processes were less standardised than he'd assumed. "I thought I had a system. Turns out I had a collection of habits. Making those explicit was actually valuable in itself, separate from the AI deployment."
+      </p>
+
+      <p>
+        And the compliance calendar, while excellent, required an initial calibration period where James reviewed the alert thresholds and adjusted them to match his practice's specific risk tolerance. Out of the box, some alerts were firing earlier than he needed; others he wanted to tighten. That customisation took about a week but is now set and running correctly.
+      </p>
+
+      <h2 id="takeaway">What Other Conveyancers Should Consider</h2>
+
+      <p>
+        The challenges James faced are not unique to him. They are structural features of solo and small conveyancing practice in Australia.
+      </p>
+
+      <p>
+        The volume of client communication required per matter is high. The compliance obligations are stringent and non-negotiable. The document collection process is inherently dependent on third parties who have their own timelines. And the billing model — typically fixed fee — means that every hour spent on admin is an hour that directly reduces your effective hourly rate.
+      </p>
+
+      <p>
+        The maths are stark. If you're handling 40 matters a month and spending two hours a day on status emails, you're devoting roughly 40 hours a month — an entire working week — to communications that an automated system could handle with greater consistency and at a fraction of the cost.
+      </p>
+
+      <p>
+        What OpenClaw doesn't do is replace your professional judgement, your client relationships, or your legal expertise. It handles the mechanical scaffolding around those things so you can spend your time on work that actually requires you.
+      </p>
+
+      <p>
+        James's closing thought was direct: "The biggest mistake I could have made was waiting another year because I was too busy to look into it. That's circular logic. You're too busy precisely because you haven't fixed the problem."
+      </p>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="article-sidebar">
+
+      <!-- Table of contents -->
+      <div class="sidebar-card">
+        <h4>In This Story</h4>
+        <nav class="sidebar-toc" id="toc">
+          <a href="#problem">The Four Pressure Points</a>
+          <a href="#discovery">Finding King Klaw</a>
+          <a href="#deployment">The Deployment</a>
+          <a href="#results">The Results</a>
+          <a href="#openclaw-features">Key Features</a>
+          <a href="#honest-take">What Didn't Go Perfectly</a>
+          <a href="#takeaway">What Conveyancers Should Know</a>
+        </nav>
+      </div>
+
+      <!-- Share -->
+      <div class="sidebar-card">
+        <h4>Share This Story</h4>
+        <div class="share-buttons">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://kingklaw.com.au/blog/2026-03-21-conveyancer-cut-turnaround-time-in-half.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=How+a+Sydney+conveyancer+cut+settlement+turnaround+time+in+half+with+OpenClaw+AI&url=https://kingklaw.com.au/blog/2026-03-21-conveyancer-cut-turnaround-time-in-half.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.85L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X (Twitter)
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copied!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-cta">
+        <h4>Ready to halve your turnaround time?</h4>
+        <p>Book a free 30-minute demo. We'll show you exactly how OpenClaw fits your conveyancing practice.</p>
+        <a href="../#cta" class="sidebar-cta-btn">Book a Free Demo →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Article CTA -->
+  <div class="article-cta">
+    <h2>Ready to get your evenings back?</h2>
+    <p>Book a free demo and we'll show you exactly how OpenClaw fits your conveyancing practice — no generic demos, no pressure.</p>
+    <div class="article-cta-btns">
+      <a href="../#cta" class="btn-coral">Book a Free Demo →</a>
+      <a href="../#pricing" class="btn-glass">See Pricing</a>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h3>More from the blog</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-card-placeholder">🏠</div>
+        <a href="2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html" style="text-decoration:none;">
+          <span class="tag" style="margin-bottom:12px;display:inline-flex;">Case Study</span>
+          <h4>How a Brisbane Mortgage Broker Saved 12 Hours a Week With OpenClaw</h4>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">Sarah Chen's Fortitude Valley brokerage was drowning in admin. Here's what changed after one week.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">⚖️</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>How a Brisbane Law Firm Cut Document Review Time by 60%</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A 4-partner firm shares how AI-assisted contract review changed their billing model.</p>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">🏢</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>The Real Estate Agency That Never Misses an After-Hours Enquiry</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A Gold Coast agency on automating weekend enquiries and buyer pre-qualification.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer style="border-top:1px solid var(--border); padding:60px 0 40px; margin-top:80px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;" class="footer-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:16px;">
+          <span style="animation:lobster-pulse 3s ease-in-out infinite;">👑🦞</span> King Klaw
+        </div>
+        <p style="font-size:14px; color:var(--text-muted); max-width:280px; line-height:1.7;">OpenClaw, deployed for Australian businesses. Premium AI infrastructure for the industries that keep the country moving.</p>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#what-is" class="link-grow" style="font-size:14px;">Platform</a>
+          <a href="../#marketplace" class="link-grow" style="font-size:14px;">Marketplace</a>
+          <a href="../#pricing" class="link-grow" style="font-size:14px;">Pricing</a>
+          <a href="../#how" class="link-grow" style="font-size:14px;">How It Works</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Industries</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Mortgage Brokers</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Law Firms</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Real Estate</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Accounting</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Company</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../blog/" class="link-grow" style="font-size:14px;">Blog</a>
+          <a href="mailto:hello@kingklaw.com.au" class="link-grow" style="font-size:14px;">Contact</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Privacy Policy</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div style="font-size:13px; color:var(--text-muted);">© 2026 King Klaw Pty Ltd. All rights reserved. ABN TBC. Brisbane, Australia.</div>
+      <div style="font-size:13px; color:var(--text-muted);">Powered by <a href="https://github.com/openclaw" class="link-grow">OpenClaw</a> open-source platform.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── Mobile menu ── */
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+
+/* ── Reading progress bar ── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('read-progress').style.width = progress + '%';
+});
+
+/* ── TOC active state on scroll ── */
+const headings = document.querySelectorAll('article h2[id], article h3[id]');
+const tocLinks = document.querySelectorAll('#toc a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+headings.forEach(h => observer.observe(h));
+
+/* ── Responsive footer grid ── */
+function checkFooter() {
+  const fg = document.querySelector('.footer-grid');
+  if (fg) {
+    fg.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr 1fr' : '2fr 1fr 1fr 1fr';
+  }
+}
+checkFooter();
+window.addEventListener('resize', checkFooter);
+</script>
+</body>
+</html>

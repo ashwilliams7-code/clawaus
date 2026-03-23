@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How a Melbourne Hospitality Group Handles 500 Bookings a Week Without Extra Staff — King Klaw</title>
+  <meta name="description" content="Elena Papandreou runs three Greek restaurants across Melbourne. 500 booking requests a week, 45 staff, and chaos. After deploying OpenClaw through King Klaw, 90% of bookings are now handled automatically — and she's saved $78K a year." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How a Melbourne Hospitality Group Handles 500 Bookings a Week Without Extra Staff" />
+  <meta property="og:description" content="Elena Papandreou's three Greek restaurants were drowning in booking requests. After deploying OpenClaw AI through King Klaw, 90% of bookings are now handled automatically and she's saved $78K a year." />
+  <meta property="og:image" content="https://kingklaw.com.au/blog/hospitality-hero.png" />
+  <meta property="og:url" content="https://kingklaw.com.au/blog/2026-03-17-hospitality-group-handles-500-bookings-week.html" />
+  <meta property="article:published_time" content="2026-03-17" />
+  <meta property="article:author" content="King Klaw Team" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How a Melbourne Hospitality Group Handles 500 Bookings a Week Without Extra Staff" />
+  <meta name="twitter:description" content="Real results from three Greek restaurants across Melbourne's inner north." />
+  <meta name="twitter:image" content="https://kingklaw.com.au/blog/hospitality-hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════ TOKENS */
+:root {
+  --coral:       #ff5c5c;
+  --coral-glow:  rgba(255,92,92,0.35);
+  --coral-dim:   rgba(255,92,92,0.12);
+  --teal:        #14b8a6;
+  --teal-glow:   rgba(20,184,166,0.35);
+  --teal-dim:    rgba(20,184,166,0.12);
+  --bg:          #0a0e17;
+  --bg-mid:      #0d1322;
+  --bg-card:     rgba(255,255,255,0.04);
+  --bg-glass:    rgba(255,255,255,0.06);
+  --border:      rgba(255,255,255,0.08);
+  --border-hi:   rgba(255,255,255,0.14);
+  --text:        #e2e8f0;
+  --text-muted:  #8898aa;
+  --white:       #ffffff;
+  --radius:      16px;
+  --radius-lg:   24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════ UTILITIES */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+a { text-decoration: none; color: inherit; }
+
+.grad-text {
+  background: linear-gradient(135deg, var(--coral) 0%, #ff8c69 40%, var(--teal) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: grad-hue 6s linear infinite;
+}
+@keyframes grad-hue {
+  0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral);
+  background: var(--coral-dim);
+  border: 1px solid rgba(255,92,92,0.25);
+  padding: 5px 14px; border-radius: 100px;
+}
+.tag-teal {
+  color: var(--teal);
+  background: var(--teal-dim);
+  border-color: rgba(20,184,166,0.25);
+}
+
+a.link-grow {
+  position: relative;
+  color: var(--teal);
+  text-decoration: none;
+}
+a.link-grow::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0%; height: 1px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+a.link-grow:hover::after { width: 100%; }
+
+/* ═══════════════════════════════ NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 28px;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+#nav.scrolled {
+  background: rgba(10,14,23,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px; font-weight: 800; color: #fff;
+  text-decoration: none;
+}
+.nav-logo img {
+  filter: drop-shadow(0 0 10px rgba(255,92,92,0.6));
+  animation: logo-glow 3s ease-in-out infinite;
+}
+@keyframes logo-glow {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)) drop-shadow(0 0 20px rgba(255,92,92,0.3)); }
+  50%     { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)) drop-shadow(0 0 40px rgba(255,92,92,0.5)); }
+}
+@keyframes lobster-pulse {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)); }
+  50%      { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)); }
+}
+.nav-links {
+  display: flex; align-items: center; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-muted);
+  transition: color 0.15s; text-decoration: none;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-cta {
+  margin-left: 12px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 26px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  text-decoration: none;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: all 0.2s;
+}
+.mob-menu {
+  display: none; position: fixed; inset: 0; top: 72px; z-index: 199;
+  background: var(--bg);
+  padding: 36px 28px;
+  flex-direction: column; gap: 28px;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a { font-size: 22px; font-weight: 600; color: #fff; text-decoration: none; }
+
+/* ═══════════════════════════════ ARTICLE HERO */
+.article-hero {
+  padding-top: 100px;
+  position: relative;
+}
+.article-hero-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.article-hero-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.article-hero-img-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════ ARTICLE LAYOUT */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  padding: 0 0 120px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { order: -1; }
+}
+
+/* ═══════════════════════════════ ARTICLE HEADER */
+.article-header {
+  padding: 48px 0 40px;
+}
+.article-header .back-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-bottom: 28px;
+}
+.article-header .back-link:hover { color: var(--teal); }
+.article-tags {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.article-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.article-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 14px; font-weight: 600; color: #fff;
+}
+.author-role {
+  font-size: 12px; color: var(--text-muted);
+}
+.article-meta-divider {
+  width: 1px; height: 32px; background: var(--border);
+}
+.article-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ═══════════════════════════════ ARTICLE BODY */
+.article-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.article-body p {
+  margin-bottom: 24px;
+}
+.article-body h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 52px 0 20px;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 36px 0 16px;
+}
+.article-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+.article-body a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body ul, .article-body ol {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.article-body li {
+  margin-bottom: 10px;
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--coral);
+  padding: 24px 32px;
+  margin: 40px 0;
+  background: var(--coral-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pull-quote p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 12px !important;
+}
+.pull-quote cite {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Stats callout */
+.stats-callout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+@media (max-width: 600px) { .stats-callout { grid-template-columns: 1fr; } }
+.stats-callout-item {
+  text-align: center;
+  padding: 16px;
+}
+.stats-callout-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stats-callout-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: var(--teal-dim);
+  border: 1px solid rgba(20,184,166,0.25);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.highlight-box-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.highlight-box p {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.highlight-box ul {
+  margin-bottom: 0;
+}
+.highlight-box li {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════ SIDEBAR */
+.article-sidebar {
+  position: sticky;
+  top: 100px;
+}
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.sidebar-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.sidebar-toc a {
+  display: block;
+  font-size: 14px; color: var(--text-muted);
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sidebar-toc a:last-child { border-bottom: none; }
+.sidebar-toc a:hover { color: var(--teal); padding-left: 6px; }
+.sidebar-toc a.active { color: var(--coral); padding-left: 6px; }
+
+.share-buttons {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.share-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.share-btn:hover { border-color: var(--border-hi); background: var(--bg-glass); color: #fff; }
+.share-btn svg { flex-shrink: 0; }
+
+/* CTA Sidebar */
+.sidebar-cta {
+  background: linear-gradient(135deg, rgba(255,92,92,0.12) 0%, rgba(20,184,166,0.08) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+}
+.sidebar-cta h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.sidebar-cta p {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.sidebar-cta-btn {
+  display: block;
+  padding: 13px 20px; border-radius: 10px;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px var(--coral-glow);
+}
+.sidebar-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--coral-glow); }
+
+/* ═══════════════════════════════ ARTICLE CTA */
+.article-cta {
+  margin: 64px 0 0;
+  padding: 56px 48px;
+  background: linear-gradient(135deg, rgba(255,92,92,0.1) 0%, rgba(20,184,166,0.06) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.article-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255,92,92,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  position: relative;
+}
+.article-cta p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+.article-cta-btns {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn-coral {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 36px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-coral:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.btn-glass {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 32px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-glass:hover { transform: translateY(-2px); background: rgba(255,255,255,0.1); }
+
+/* ═══════════════════════════════ RELATED POSTS */
+.related-posts {
+  padding: 64px 0 0;
+  border-top: 1px solid var(--border);
+}
+.related-posts h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 36px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+.related-card-placeholder {
+  width: 100%; aspect-ratio: 16/7;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bg-mid) 0%, rgba(20,184,166,0.06) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+.related-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.related-card p {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════ PROGRESS BAR */
+#read-progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--teal));
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════ FOOTER */
+footer a { color: var(--teal); }
+
+/* ═══════════════════════════════ RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .article-hero { padding-top: 72px; }
+  .article-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div id="read-progress"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../logo.png" alt="King Klaw" style="width:36px;height:36px;border-radius:6px;">
+      King Klaw
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../#what-is">Platform</a></li>
+      <li><a href="../#how">How It Works</a></li>
+      <li><a href="../#marketplace">Skills</a></li>
+      <li><a href="../#industries">Industries</a></li>
+      <li><a href="../#pricing">Pricing</a></li>
+      <li><a href="../blog/" class="active">Blog</a></li>
+    </ul>
+    <a href="../#cta" class="nav-cta">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="../#what-is" onclick="closeMob()">Platform</a>
+  <a href="../#how" onclick="closeMob()">How It Works</a>
+  <a href="../#marketplace" onclick="closeMob()">Skills</a>
+  <a href="../#pricing" onclick="closeMob()">Pricing</a>
+  <a href="../blog/" onclick="closeMob()">Blog</a>
+  <a href="../#cta" onclick="closeMob()" style="display:inline-flex;align-items:center;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,#ff5c5c,#e64d4d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;">Get Started</a>
+</div>
+
+<!-- Hero Image -->
+<div class="article-hero">
+  <div class="article-hero-img-wrap">
+    <img
+      src="hospitality-hero.png"
+      alt="Elena Papandreou standing in one of her Melbourne Greek restaurants"
+      class="article-hero-img"
+    />
+  </div>
+</div>
+
+<!-- Article -->
+<div class="container">
+
+  <!-- Article Header -->
+  <div class="article-header">
+    <a href="../blog/" class="back-link">
+      ← Back to Blog
+    </a>
+    <div class="article-tags">
+      <span class="tag">Case Study</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Hospitality</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Melbourne</span>
+    </div>
+    <h1 class="article-title">How a Melbourne Hospitality Group Handles 500 Bookings a Week Without Extra Staff</h1>
+    <div class="article-meta">
+      <div class="article-author">
+        <div class="author-avatar">👑</div>
+        <div>
+          <div class="author-name">King Klaw Team</div>
+          <div class="author-role">kingklaw.com.au</div>
+        </div>
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        17 March 2026
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        9 min read
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="article-layout">
+
+    <!-- Main content -->
+    <article class="article-body">
+
+      <p>
+        It's a Saturday at 11am, and the phones at Elia — Elena Papandreou's flagship Greek restaurant in South Yarra — haven't stopped ringing since 9am. Two large group bookings for the same Friday evening need to be confirmed. Someone on Instagram wants to know if the private dining room can seat twenty-two for a fortieth birthday. A corporate client is asking whether the set menu can accommodate six dietary requirements. And three different people have emailed about Christmas party packages, none of which have been answered.
+      </p>
+
+      <p>
+        Meanwhile, Elena is at the Brunswick venue sorting out a rostering issue, and the two staff members who normally handle bookings are already on lunch service.
+      </p>
+
+      <p>
+        This is not a bad Saturday. This is just Saturday.
+      </p>
+
+      <p>
+        Elena Papandreou has been in hospitality for nearly fifteen years. She opened Elia in South Yarra in 2016, expanded to a second venue in Fitzroy in 2019, and added a third in Brunswick in 2023. Across three restaurants she employs 45 staff. At peak, her venues collectively field more than 500 booking requests a week — via phone, Instagram DMs, email, and website forms. She had two full-time staff members whose entire roles were essentially booking management. And it still wasn't enough.
+      </p>
+
+      <p>
+        "We were losing bookings every single week," she says. "Not because we didn't have the capacity. Because we couldn't respond fast enough."
+      </p>
+
+      <h2 id="problem">The Compounding Cost of Slow Responses</h2>
+
+      <p>
+        Running a hospitality business at scale means the admin doesn't just add up linearly — it compounds. One missed Instagram DM doesn't just lose one booking. It might lose the person's group of twelve, plus all the word-of-mouth that would have come from a great experience. A two-day delay responding to a corporate event enquiry almost certainly means the enquirer has already booked somewhere else. In a city like Melbourne, where competition between venues is fierce, response speed is a competitive advantage most operators don't think of in those terms.
+      </p>
+
+      <h3>1. The Booking Volume Problem</h3>
+      <p>
+        Five hundred booking requests a week across three venues is not a small number. The split was roughly: 40% phone, 30% Instagram DM, 20% email, and 10% website form. Each channel had a different response expectation from customers — and a different level of attention from staff. Instagram DMs in particular were a black hole. Guests messaging @eliasouthyarra on a Sunday evening expecting a quick reply were instead waiting until Monday morning, by which point the conversion rate had dropped through the floor.
+      </p>
+
+      <h3>2. Large Group Bookings</h3>
+      <p>
+        Any reservation for ten or more people requires what Elena calls "the dance" — a back-and-forth process of confirming numbers, collecting dietary requirements, selecting a set menu or negotiating a customised one, coordinating with the kitchen on timing, and sending formal confirmation. Each large group booking was taking anywhere from 30 minutes to two hours of staff time spread across multiple days. With fifteen to twenty large group bookings per week across all three venues, this was consuming the equivalent of a full-time position.
+      </p>
+
+      <h3>3. Event Enquiries Falling Through the Cracks</h3>
+      <p>
+        Weddings, corporate functions, milestone birthday parties, product launches — all three venues do private events, and event revenue carries healthy margins. But event enquiries have a longer consideration cycle, often arriving by email with multiple questions, and they need thorough, detailed responses. These were consistently being deprioritised in favour of immediate operational demands. A wedding enquiry that came in on a busy Friday afternoon might not get a substantive reply for two or three days — by which point the couple had very likely made a booking elsewhere.
+      </p>
+
+      <h3>4. Staff Rostering Chaos Across Three Venues</h3>
+      <p>
+        Forty-five staff across three Melbourne venues means rostering isn't simple. Under the <a href="https://www.fairwork.gov.au/employment-conditions/awards/awards-summary/ma000009-summary" target="_blank" rel="noopener">Restaurant Industry Award</a> (MA000009), there are specific requirements around minimum shift lengths, break entitlements, penalty rates for weekends and public holidays, and notice periods for roster changes. Keeping track of all of this while simultaneously managing a deluge of booking communications was an unreasonable ask of any manager.
+      </p>
+
+      <h3>5. Dietary Requirements and Customer Service Delays</h3>
+      <p>
+        Food Standards Australia requires that venues provide accurate allergen information to customers on request. With a team of 45 and three kitchens, the practical challenge of communicating dietary requirements reliably between booking, floor, and kitchen — while also responding promptly to customer enquiries — was a source of persistent stress. Staff were spending meaningful time on the phone answering questions that could have been handled automatically: "Is the lamb dish gluten free?" "Can you do a dairy-free version of the baklava?"
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">500+</div>
+          <div class="stats-callout-label">Booking requests/week</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">2 FTE</div>
+          <div class="stats-callout-label">Dedicated to bookings</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">2–3 days</div>
+          <div class="stats-callout-label">Event enquiry response time</div>
+        </div>
+      </div>
+
+      <h2 id="discovery">Why Elena Was Sceptical of AI</h2>
+
+      <p>
+        Elena is not someone who chases technology for the sake of it. She's spent fifteen years building businesses on the back of genuine hospitality — the warmth, the attentiveness, the feeling of being looked after that keeps people coming back to her restaurants again and again. The idea of replacing that with automation made her uncomfortable.
+      </p>
+
+      <p>
+        "My worry was always that it would feel cold," she says. "That people would feel like they were talking to a robot when they were trying to book somewhere special. A birthday dinner, a first anniversary — those moments matter. I didn't want to be the business that made someone feel like a ticket number."
+      </p>
+
+      <p>
+        She'd looked at a few generic booking platforms and found them limiting. They could handle simple table reservations but fell apart the moment any nuance was involved — a guest with a nut allergy and a request for a quiet corner table, a corporate client wanting to confirm a standing annual booking with slightly different numbers this year. These weren't edge cases. They were Tuesday.
+      </p>
+
+      <p>
+        What changed her mind was a conversation with another hospitality operator at a Melbourne food industry event in late 2025. He'd been running OpenClaw through King Klaw for four months and was effusive about it — not in a tech-bro way, but in a "I actually get to run my restaurant again" way. Elena booked a demo the following week.
+      </p>
+
+      <h2 id="deployment">The Deployment: Built Around Warmth, Not Efficiency</h2>
+
+      <p>
+        The King Klaw onboarding process started with something Elena hadn't expected: a tone-of-voice session. Before a single workflow was configured, the team spent time understanding how Elena and her staff communicate with guests — the language they use, the level of formality (warm and personal, not corporate), the specific phrases that feel like Elia and the ones that don't.
+      </p>
+
+      <p>
+        "They actually read through about three months of our email replies," Elena recalls. "They were looking for patterns — how we greet people, how we close, how we handle disappointed guests when we're fully booked. They built a communication style from that. When I read the first test messages, they sounded like us."
+      </p>
+
+      <p>
+        The technical deployment took place across two weeks. King Klaw connected OpenClaw to all three venue Instagram accounts, the shared bookings email address, the website booking form, and the existing reservation system. The phone channel was handled differently — rather than replacing the phones, OpenClaw was configured to send an automatic SMS follow-up to any missed call within two minutes, acknowledging the call and offering an instant booking link or a callback.
+      </p>
+
+      <div class="highlight-box">
+        <div class="highlight-box-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          What was deployed across the two weeks
+        </div>
+        <ul>
+          <li>Multi-venue booking management — OpenClaw handles all three venues from a single platform, with venue-specific branding and communication styles</li>
+          <li>Instagram DM integration — automated first response within 3 minutes, human handoff flag for anything complex</li>
+          <li>Large group booking workflow — AI collects guest numbers, dietary requirements, and menu preferences, generates a structured kitchen brief, and flags for staff confirmation</li>
+          <li>Event enquiry capture — dedicated response templates for weddings, corporate functions, and private dining, with automatic follow-up sequences if no reply is received</li>
+          <li>Allergen and dietary information module — trained on all three venues' menus, answers common questions instantly with Food Standards Australia-compliant responses</li>
+          <li>Missed call SMS — automatic follow-up within 2 minutes of any unanswered call</li>
+        </ul>
+      </div>
+
+      <p>
+        One decision that proved particularly important: the system was configured to be explicit about its nature. When OpenClaw handles an initial enquiry, it identifies itself as the booking assistant for the venue — not as a human team member. This was Elena's call, and it's consistent with the Australian Consumer Law obligations around misleading or deceptive conduct. Customers aren't deceived; the AI just happens to be faster and more thorough than any human could be at 11pm on a Sunday.
+      </p>
+
+      <h2 id="results">The Results, Three Months In</h2>
+
+      <p>
+        We caught up with Elena at the 90-day mark. By this point, OpenClaw had handled over 6,000 booking interactions across all three venues, processed 47 large group bookings end-to-end, and responded to 112 event enquiries.
+      </p>
+
+      <p>
+        Here's what that translated to in practice.
+      </p>
+
+      <h3>Booking Automation Rate</h3>
+      <p>
+        Ninety per cent of standard bookings — tables for two to eight, straightforward time slots, no complex dietary requirements — are now handled entirely automatically. OpenClaw confirms the booking, sends the menu, fires a reminder 24 hours before, and follows up with a post-visit feedback request. Staff only see these bookings if there's a problem. For a business handling 500+ requests a week, removing 450 of them from the manual queue is transformational.
+      </p>
+
+      <h3>Large Group Bookings</h3>
+      <p>
+        This was the area Elena was most sceptical about — and the area that has delivered the most unexpected value. The OpenClaw large group workflow prompts the customer through a structured conversation: how many guests, any dietary requirements, preferred set menu or custom, any occasion the kitchen should know about. The AI collates this into a structured brief, suggests the appropriate menu tier, and sends it to the relevant venue manager for confirmation. What used to take thirty-plus minutes of back-and-forth now takes staff about four minutes to review and approve.
+      </p>
+
+      <h3>Event Enquiry Response Time</h3>
+      <p>
+        Average response time to event enquiries dropped from two to three days to under one hour. For weddings and large corporate bookings — where the customer is often contacting multiple venues simultaneously — this has meaningfully improved conversion. Elena estimates she's capturing event bookings she would previously have lost simply because someone else replied first.
+      </p>
+
+      <h3>Instagram Response Time</h3>
+      <p>
+        DMs that previously waited until the next business day are now receiving substantive first responses within three minutes, around the clock. The conversion rate from Instagram DM enquiry to confirmed booking has improved measurably — Elena's floor manager estimates it's up by roughly a quarter, though she's careful to note that multiple factors influence that number.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">90%</div>
+          <div class="stats-callout-label">Bookings fully automated</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">3 min</div>
+          <div class="stats-callout-label">Avg. Instagram DM response</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">$78K</div>
+          <div class="stats-callout-label">Annual staff cost savings</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"I was worried it would feel cold. It doesn't. If anything, guests comment that we're more responsive than we used to be — and that's the whole point."</p>
+        <cite>— Elena Papandreou, Owner, Elia Group</cite>
+      </div>
+
+      <h3>Staff Savings</h3>
+      <p>
+        The two full-time booking management roles have been restructured. One staff member now oversees the AI system — quality-checking responses, handling escalations, and managing the event pipeline that OpenClaw captures — spending roughly a third of their time on booking-related tasks compared to previously. The equivalent of 1.5 FTE has been redirected to floor and kitchen roles, where the shortage was more acute. Elena calculates the total staff cost saving at approximately $78,000 per year, net of the King Klaw subscription.
+      </p>
+
+      <h2 id="openclaw-features">The OpenClaw Features Behind the Results</h2>
+
+      <p>
+        OpenClaw's March 2026 release brought several updates that are particularly well-suited to multi-venue hospitality operations.
+      </p>
+
+      <h3>Multi-Venue Management</h3>
+      <p>
+        OpenClaw's March 2026 update introduced a significant improvement to multi-venue orchestration — the ability for a single AI deployment to manage distinct operating contexts for multiple locations simultaneously. For Elena's group, this means South Yarra, Fitzroy, and Brunswick each have their own booking calendars, their own menu information, their own staff contacts, and their own communication style — but all managed through one platform. When a customer contacts the wrong venue's Instagram DM, the AI recognises it and routes the enquiry to the right location without the customer even noticing.
+      </p>
+
+      <h3>Instagram DM Integration</h3>
+      <p>
+        Social media DMs have become one of the primary booking channels for Australian hospitality — particularly among the 25–40 demographic that makes up the core of Melbourne's dining market. OpenClaw's Instagram integration handles the initial response, collects booking details, and escalates to a human only when the enquiry exceeds a defined complexity threshold. The human escalation flag — a simple handoff to the venue's shared inbox — happens automatically, with full conversation context included.
+      </p>
+
+      <h3>Food Standards Australia Compliance Module</h3>
+      <p>
+        Australia's food allergen labelling requirements, as governed by Standard 1.2.3 of the Food Standards Australia New Zealand (FSANZ) Code, place real obligations on food businesses to provide accurate allergen information. OpenClaw's hospitality compliance module is trained on these requirements and handles allergen queries with responses that are both accurate and appropriately caveated — the AI confirms what's in a dish but always recommends the customer speak to staff about severe allergies. This is the correct approach under FSANZ guidelines, and it's handled consistently every time.
+      </p>
+
+      <h3>Liquor Licensing Awareness</h3>
+      <p>
+        All three Elia venues hold Victorian liquor licences. OpenClaw's compliance configuration includes basic liquor licensing rules — venue trading hours, responsible service of alcohol messaging in relevant communications, and flagging of enquiries that touch on BYOB policies or catering-to-go requests that may require a different licence category. This keeps staff-facing summaries accurate and ensures no automated communication inadvertently misrepresents the venue's licence conditions.
+      </p>
+
+      <h3>400+ Skill Marketplace</h3>
+      <p>
+        OpenClaw's skill marketplace now includes over 400 modular capabilities that can be mixed and matched for any business context. For Elena's deployment, King Klaw drew on the Instagram DM integration skill, the multi-venue booking orchestration skill, the allergen information module, the event enquiry capture skill, and an Australian Consumer Law compliance layer that ensures all automated communications meet the disclosure requirements under the <a href="https://www.accc.gov.au/consumers/consumer-rights-guarantees/consumer-rights-under-the-australian-consumer-law" target="_blank" rel="noopener">ACL</a>. None of these required custom development.
+      </p>
+
+      <h2 id="honest-take">What Elena Would Tell Other Hospitality Operators</h2>
+
+      <p>
+        We asked Elena what she wishes she'd known going in.
+      </p>
+
+      <p>
+        "The calibration period is real," she says. "The first two weeks, I was jumping in and tweaking responses quite a bit — not because they were wrong, exactly, but because they weren't quite right. There's a difference between grammatically correct and actually sounding like us. The team at King Klaw were really responsive about it, but I'd tell anyone going in: plan for a few weeks of active feedback before it feels seamless."
+      </p>
+
+      <p>
+        She also notes that the system handles the volume beautifully but still needs a human in the loop for genuinely complex or sensitive situations. A guest who contacts the venue distressed about a previous bad experience isn't a booking problem — it's a hospitality problem, and it needs a human response. OpenClaw is configured to flag these interactions immediately. The AI doesn't try to resolve a complaint. It acknowledges, empathises briefly, and escalates. That boundary matters.
+      </p>
+
+      <p>
+        "The thing I keep coming back to," Elena says, "is that hospitality is ultimately about people. The AI hasn't changed that — it's just removed the stuff that was getting in the way of it. I spend less time chasing emails and more time in my restaurants, talking to guests, supporting my team. That's why I got into this in the first place."
+      </p>
+
+      <p>
+        For hospitality operators thinking about this: the barrier to entry is lower than you expect, and the operational benefit is larger than you'd model before trying it. The question isn't whether your business is too small or too complex for AI. The question is how much business you're currently losing to a slow inbox.
+      </p>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="article-sidebar">
+
+      <!-- Table of contents -->
+      <div class="sidebar-card">
+        <h4>In This Story</h4>
+        <nav class="sidebar-toc" id="toc">
+          <a href="#problem">The Cost of Slow Responses</a>
+          <a href="#discovery">Why Elena Was Sceptical</a>
+          <a href="#deployment">The Deployment</a>
+          <a href="#results">The Results</a>
+          <a href="#openclaw-features">Key Features</a>
+          <a href="#honest-take">What Elena Would Tell You</a>
+        </nav>
+      </div>
+
+      <!-- Share -->
+      <div class="sidebar-card">
+        <h4>Share This Story</h4>
+        <div class="share-buttons">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://kingklaw.com.au/blog/2026-03-17-hospitality-group-handles-500-bookings-week.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=How+a+Melbourne+hospitality+group+handles+500+bookings+a+week+without+extra+staff&url=https://kingklaw.com.au/blog/2026-03-17-hospitality-group-handles-500-bookings-week.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.85L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X (Twitter)
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copied!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-cta">
+        <h4>Ready to get your weekends back?</h4>
+        <p>Book a free 30-minute demo. We'll show you exactly how OpenClaw would work across your venues.</p>
+        <a href="../#cta" class="sidebar-cta-btn">Book a Free Demo →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Article CTA -->
+  <div class="article-cta">
+    <h2>500 bookings a week. 90% automated.</h2>
+    <p>Book a free demo and we'll show you how OpenClaw fits your hospitality operation — multi-venue, multi-channel, no generic demos.</p>
+    <div class="article-cta-btns">
+      <a href="../#cta" class="btn-coral">Book a Free Demo →</a>
+      <a href="../#pricing" class="btn-glass">See Pricing</a>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h3>More from the blog</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-card-placeholder">🏠</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Case Study</span>
+        <h4>How a Brisbane Mortgage Broker Saved 12 Hours a Week With OpenClaw</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;"><a href="./2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html" style="color:var(--teal);text-decoration:underline;">Sarah Chen's brokerage was drowning in admin. Read how she took back her week.</a></p>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">⚖️</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>How a Brisbane Law Firm Cut Document Review Time by 60%</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A 4-partner firm shares how AI-assisted contract review changed their billing model.</p>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">🏡</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>The Real Estate Agency That Never Misses an After-Hours Enquiry</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A Gold Coast agency on automating weekend enquiries and buyer pre-qualification.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer style="border-top:1px solid var(--border); padding:60px 0 40px; margin-top:80px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;" class="footer-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:16px;">
+          <span style="animation:lobster-pulse 3s ease-in-out infinite;">👑🦞</span> King Klaw
+        </div>
+        <p style="font-size:14px; color:var(--text-muted); max-width:280px; line-height:1.7;">OpenClaw, deployed for Australian businesses. Premium AI infrastructure for the industries that keep the country moving.</p>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#what-is" class="link-grow" style="font-size:14px;">Platform</a>
+          <a href="../#marketplace" class="link-grow" style="font-size:14px;">Marketplace</a>
+          <a href="../#pricing" class="link-grow" style="font-size:14px;">Pricing</a>
+          <a href="../#how" class="link-grow" style="font-size:14px;">How It Works</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Industries</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Mortgage Brokers</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Law Firms</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Real Estate</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Hospitality</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Company</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../blog/" class="link-grow" style="font-size:14px;">Blog</a>
+          <a href="mailto:hello@kingklaw.com.au" class="link-grow" style="font-size:14px;">Contact</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Privacy Policy</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div style="font-size:13px; color:var(--text-muted);">© 2026 King Klaw Pty Ltd. All rights reserved. ABN TBC. Brisbane, Australia.</div>
+      <div style="font-size:13px; color:var(--text-muted);">Powered by <a href="https://github.com/openclaw" class="link-grow">OpenClaw</a> open-source platform.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── Mobile menu ── */
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+
+/* ── Reading progress bar ── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('read-progress').style.width = progress + '%';
+});
+
+/* ── TOC active state on scroll ── */
+const headings = document.querySelectorAll('article h2[id], article h3[id]');
+const tocLinks = document.querySelectorAll('#toc a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+headings.forEach(h => observer.observe(h));
+
+/* ── Responsive footer grid ── */
+function checkFooter() {
+  const fg = document.querySelector('.footer-grid');
+  if (fg) {
+    fg.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr 1fr' : '2fr 1fr 1fr 1fr';
+  }
+}
+checkFooter();
+window.addEventListener('resize', checkFooter);
+</script>
+</body>
+</html>

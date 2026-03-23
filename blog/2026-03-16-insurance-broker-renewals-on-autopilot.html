@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="../logo.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How a Perth Insurance Broker Put 400 Renewals on Autopilot — King Klaw</title>
+  <meta name="description" content="Craig Morrison's Subiaco brokerage was losing policies every renewal season. After deploying OpenClaw through King Klaw, his retention rate jumped from 89% to 97% and he saved 15 hours a week." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="How a Perth Insurance Broker Put 400 Renewals on Autopilot" />
+  <meta property="og:description" content="Craig Morrison's brokerage was losing policies every renewal season. After deploying OpenClaw, retention jumped from 89% to 97% — saving ~$48K in annual commission." />
+  <meta property="og:image" content="https://kingklaw.com.au/blog/insurance-hero.png" />
+  <meta property="og:url" content="https://kingklaw.com.au/blog/2026-03-16-insurance-broker-renewals-on-autopilot.html" />
+  <meta property="article:published_time" content="2026-03-16" />
+  <meta property="article:author" content="King Klaw Team" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="How a Perth Insurance Broker Put 400 Renewals on Autopilot" />
+  <meta name="twitter:description" content="Real results from a 3-person general insurance brokerage in Perth's Subiaco." />
+  <meta name="twitter:image" content="https://kingklaw.com.au/blog/insurance-hero.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* ═══════════════════════════════ TOKENS */
+:root {
+  --coral:       #ff5c5c;
+  --coral-glow:  rgba(255,92,92,0.35);
+  --coral-dim:   rgba(255,92,92,0.12);
+  --teal:        #14b8a6;
+  --teal-glow:   rgba(20,184,166,0.35);
+  --teal-dim:    rgba(20,184,166,0.12);
+  --bg:          #0a0e17;
+  --bg-mid:      #0d1322;
+  --bg-card:     rgba(255,255,255,0.04);
+  --bg-glass:    rgba(255,255,255,0.06);
+  --border:      rgba(255,255,255,0.08);
+  --border-hi:   rgba(255,255,255,0.14);
+  --text:        #e2e8f0;
+  --text-muted:  #8898aa;
+  --white:       #ffffff;
+  --radius:      16px;
+  --radius-lg:   24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════════════ UTILITIES */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+a { text-decoration: none; color: inherit; }
+
+.grad-text {
+  background: linear-gradient(135deg, var(--coral) 0%, #ff8c69 40%, var(--teal) 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: grad-hue 6s linear infinite;
+}
+@keyframes grad-hue {
+  0%   { background-position: 0% 50%; filter: hue-rotate(0deg); }
+  50%  { background-position: 100% 50%; filter: hue-rotate(15deg); }
+  100% { background-position: 0% 50%; filter: hue-rotate(0deg); }
+}
+
+.tag {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--coral);
+  background: var(--coral-dim);
+  border: 1px solid rgba(255,92,92,0.25);
+  padding: 5px 14px; border-radius: 100px;
+}
+.tag-teal {
+  color: var(--teal);
+  background: var(--teal-dim);
+  border-color: rgba(20,184,166,0.25);
+}
+
+a.link-grow {
+  position: relative;
+  color: var(--teal);
+  text-decoration: none;
+}
+a.link-grow::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0%; height: 1px;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+a.link-grow:hover::after { width: 100%; }
+
+/* ═══════════════════════════════ NAV */
+#nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 0 28px;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+#nav.scrolled {
+  background: rgba(10,14,23,0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.4);
+}
+.nav-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 11px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 21px; font-weight: 800; color: #fff;
+  text-decoration: none;
+}
+.nav-logo img {
+  filter: drop-shadow(0 0 10px rgba(255,92,92,0.6));
+  animation: logo-glow 3s ease-in-out infinite;
+}
+@keyframes logo-glow {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)) drop-shadow(0 0 20px rgba(255,92,92,0.3)); }
+  50%     { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)) drop-shadow(0 0 40px rgba(255,92,92,0.5)); }
+}
+@keyframes lobster-pulse {
+  0%,100% { filter: drop-shadow(0 0 8px rgba(255,92,92,0.5)); }
+  50%      { filter: drop-shadow(0 0 16px rgba(255,92,92,0.9)); }
+}
+.nav-links {
+  display: flex; align-items: center; gap: 40px; list-style: none;
+}
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-muted);
+  transition: color 0.15s; text-decoration: none;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a.active { color: #fff; }
+.nav-cta {
+  margin-left: 12px;
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 12px 26px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s cubic-bezier(.4,0,.2,1);
+  text-decoration: none;
+}
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 6px;
+}
+.hamburger span {
+  display: block; width: 24px; height: 2px;
+  background: var(--text); border-radius: 2px;
+  transition: all 0.2s;
+}
+.mob-menu {
+  display: none; position: fixed; inset: 0; top: 72px; z-index: 199;
+  background: var(--bg);
+  padding: 36px 28px;
+  flex-direction: column; gap: 28px;
+}
+.mob-menu.open { display: flex; }
+.mob-menu a { font-size: 22px; font-weight: 600; color: #fff; text-decoration: none; }
+
+/* ═══════════════════════════════ ARTICLE HERO */
+.article-hero {
+  padding-top: 100px;
+  position: relative;
+}
+.article-hero-img {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.article-hero-img-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.article-hero-img-wrap::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════ ARTICLE LAYOUT */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  padding: 0 0 120px;
+  align-items: start;
+}
+@media (max-width: 960px) {
+  .article-layout { grid-template-columns: 1fr; }
+  .article-sidebar { order: -1; }
+}
+
+/* ═══════════════════════════════ ARTICLE HEADER */
+.article-header {
+  padding: 48px 0 40px;
+}
+.article-header .back-link {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s;
+  margin-bottom: 28px;
+}
+.article-header .back-link:hover { color: var(--teal); }
+.article-tags {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.article-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.15;
+  margin-bottom: 28px;
+}
+.article-meta {
+  display: flex; align-items: center; gap: 20px;
+  flex-wrap: wrap;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.article-author {
+  display: flex; align-items: center; gap: 12px;
+}
+.author-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--coral), var(--teal));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.author-name {
+  font-size: 14px; font-weight: 600; color: #fff;
+}
+.author-role {
+  font-size: 12px; color: var(--text-muted);
+}
+.article-meta-divider {
+  width: 1px; height: 32px; background: var(--border);
+}
+.article-meta-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 13px; color: var(--text-muted);
+}
+
+/* ═══════════════════════════════ ARTICLE BODY */
+.article-body {
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--text);
+}
+.article-body p {
+  margin-bottom: 24px;
+}
+.article-body h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 52px 0 20px;
+  line-height: 1.25;
+}
+.article-body h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 36px 0 16px;
+}
+.article-body strong {
+  color: #fff;
+  font-weight: 600;
+}
+.article-body a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.article-body ul, .article-body ol {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.article-body li {
+  margin-bottom: 10px;
+}
+
+/* Pull quote */
+.pull-quote {
+  border-left: 3px solid var(--coral);
+  padding: 24px 32px;
+  margin: 40px 0;
+  background: var(--coral-dim);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.pull-quote p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.5;
+  font-style: italic;
+  margin-bottom: 12px !important;
+}
+.pull-quote cite {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* Stats callout */
+.stats-callout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+  padding: 36px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+@media (max-width: 600px) { .stats-callout { grid-template-columns: 1fr; } }
+.stats-callout-item {
+  text-align: center;
+  padding: 16px;
+}
+.stats-callout-number {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: var(--coral);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.stats-callout-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Highlight box */
+.highlight-box {
+  background: var(--teal-dim);
+  border: 1px solid rgba(20,184,166,0.25);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 36px 0;
+}
+.highlight-box-title {
+  display: flex; align-items: center; gap: 10px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 800;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 12px;
+}
+.highlight-box p {
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 0 !important;
+}
+.highlight-box ul {
+  margin-bottom: 0;
+}
+.highlight-box li {
+  font-size: 15px;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════ SIDEBAR */
+.article-sidebar {
+  position: sticky;
+  top: 100px;
+}
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.sidebar-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.sidebar-toc a {
+  display: block;
+  font-size: 14px; color: var(--text-muted);
+  text-decoration: none;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s, padding-left 0.15s;
+}
+.sidebar-toc a:last-child { border-bottom: none; }
+.sidebar-toc a:hover { color: var(--teal); padding-left: 6px; }
+.sidebar-toc a.active { color: var(--coral); padding-left: 6px; }
+
+.share-buttons {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.share-btn {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; border-radius: 10px;
+  font-size: 13px; font-weight: 600;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.share-btn:hover { border-color: var(--border-hi); background: var(--bg-glass); color: #fff; }
+.share-btn svg { flex-shrink: 0; }
+
+/* CTA Sidebar */
+.sidebar-cta {
+  background: linear-gradient(135deg, rgba(255,92,92,0.12) 0%, rgba(20,184,166,0.08) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  text-align: center;
+}
+.sidebar-cta h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.sidebar-cta p {
+  font-size: 13px; color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+.sidebar-cta-btn {
+  display: block;
+  padding: 13px 20px; border-radius: 10px;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 14px; font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px var(--coral-glow);
+}
+.sidebar-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px var(--coral-glow); }
+
+/* ═══════════════════════════════ ARTICLE CTA */
+.article-cta {
+  margin: 64px 0 0;
+  padding: 56px 48px;
+  background: linear-gradient(135deg, rgba(255,92,92,0.1) 0%, rgba(20,184,166,0.06) 100%);
+  border: 1px solid rgba(255,92,92,0.2);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.article-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 70% at 50% 100%, rgba(255,92,92,0.1) 0%, transparent 60%);
+  pointer-events: none;
+}
+.article-cta h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+  position: relative;
+}
+.article-cta p {
+  font-size: 17px;
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto 36px;
+  line-height: 1.7;
+  position: relative;
+}
+.article-cta-btns {
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+  flex-wrap: wrap;
+  position: relative;
+}
+.btn-coral {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 36px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: linear-gradient(135deg, #ff5c5c 0%, #e64d4d 100%);
+  color: #fff;
+  box-shadow: 0 4px 24px var(--coral-glow);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-coral:hover { transform: translateY(-2px); box-shadow: 0 8px 36px var(--coral-glow); }
+.btn-glass {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 16px 32px; border-radius: 12px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px; font-weight: 700;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-hi);
+  color: var(--text);
+  backdrop-filter: blur(12px);
+  transition: all 0.22s;
+  text-decoration: none;
+}
+.btn-glass:hover { transform: translateY(-2px); background: rgba(255,255,255,0.1); }
+
+/* ═══════════════════════════════ RELATED POSTS */
+.related-posts {
+  padding: 64px 0 0;
+  border-top: 1px solid var(--border);
+}
+.related-posts h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 22px; font-weight: 800; color: #fff;
+  margin-bottom: 36px;
+}
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) { .related-grid { grid-template-columns: 1fr; } }
+
+.related-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.related-card:hover { border-color: var(--border-hi); transform: translateY(-2px); }
+.related-card-placeholder {
+  width: 100%; aspect-ratio: 16/7;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bg-mid) 0%, rgba(20,184,166,0.06) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  margin-bottom: 18px;
+}
+.related-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px; font-weight: 700; color: #fff;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+.related-card p {
+  font-size: 13px; color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════ PROGRESS BAR */
+#read-progress {
+  position: fixed; top: 0; left: 0; z-index: 300;
+  height: 3px;
+  background: linear-gradient(90deg, var(--coral), var(--teal));
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* ═══════════════════════════════ FOOTER */
+footer a { color: var(--teal); }
+
+/* ═══════════════════════════════ RESPONSIVE */
+@media (max-width: 768px) {
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: flex; }
+  .article-hero { padding-top: 72px; }
+  .article-cta { padding: 40px 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Reading progress bar -->
+<div id="read-progress"></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">
+      <img src="../logo.png" alt="King Klaw" style="width:36px;height:36px;border-radius:6px;">
+      King Klaw
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../#what-is">Platform</a></li>
+      <li><a href="../#how">How It Works</a></li>
+      <li><a href="../#marketplace">Skills</a></li>
+      <li><a href="../#industries">Industries</a></li>
+      <li><a href="../#pricing">Pricing</a></li>
+      <li><a href="../blog/" class="active">Blog</a></li>
+    </ul>
+    <a href="../#cta" class="nav-cta">Get Started</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mobMenu">
+  <a href="../#what-is" onclick="closeMob()">Platform</a>
+  <a href="../#how" onclick="closeMob()">How It Works</a>
+  <a href="../#marketplace" onclick="closeMob()">Skills</a>
+  <a href="../#pricing" onclick="closeMob()">Pricing</a>
+  <a href="../blog/" onclick="closeMob()">Blog</a>
+  <a href="../#cta" onclick="closeMob()" style="display:inline-flex;align-items:center;padding:14px 28px;border-radius:12px;background:linear-gradient(135deg,#ff5c5c,#e64d4d);color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;">Get Started</a>
+</div>
+
+<!-- Hero Image -->
+<div class="article-hero">
+  <div class="article-hero-img-wrap">
+    <img
+      src="insurance-hero.png"
+      alt="A Perth insurance broker relaxed in his office with the city skyline behind him"
+      class="article-hero-img"
+    />
+  </div>
+</div>
+
+<!-- Article -->
+<div class="container">
+
+  <!-- Article Header -->
+  <div class="article-header">
+    <a href="../blog/" class="back-link">
+      ← Back to Blog
+    </a>
+    <div class="article-tags">
+      <span class="tag">Case Study</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Insurance Brokers</span>
+      <span class="tag tag-teal" style="color:var(--teal);background:var(--teal-dim);border-color:rgba(20,184,166,0.25);">Perth</span>
+    </div>
+    <h1 class="article-title">How a Perth Insurance Broker Put 400 Renewals on Autopilot</h1>
+    <div class="article-meta">
+      <div class="article-author">
+        <div class="author-avatar">👑</div>
+        <div>
+          <div class="author-name">King Klaw Team</div>
+          <div class="author-role">kingklaw.com.au</div>
+        </div>
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        16 March 2026
+      </div>
+      <div class="article-meta-divider"></div>
+      <div class="article-meta-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        9 min read
+      </div>
+    </div>
+  </div>
+
+  <!-- Two-column layout -->
+  <div class="article-layout">
+
+    <!-- Main content -->
+    <article class="article-body">
+
+      <p>
+        It's the third week of October and Craig Morrison hasn't taken a proper lunch break in eleven days. The window behind his desk in Subiaco frames a Perth afternoon so crisp it looks painted — but Craig is staring at a spreadsheet. Again.
+      </p>
+
+      <p>
+        Renewal season.
+      </p>
+
+      <p>
+        Craig runs Morrison Insurance Brokers, a general insurance brokerage he's built over fourteen years. Two brokers, one admin. Around 400 active policies across commercial property, public liability, professional indemnity, and personal lines. Solid business by any measure — the kind of client relationships that get built over years, not months.
+      </p>
+
+      <p>
+        But every year, from October through December, the whole operation nearly unravels under the weight of renewals. "It's like trying to juggle 400 plates at once," Craig told us. "And every year, a few of them hit the floor."
+      </p>
+
+      <p>
+        Last year, fifteen did. Fifteen policies that lapsed or moved to a competitor because renewals slipped through the cracks of a manual process that simply couldn't scale.
+      </p>
+
+      <h2 id="problem">The Anatomy of a Renewal Nightmare</h2>
+
+      <p>
+        Insurance broking is fundamentally a relationship business built on trust and continuity. Clients stay with their broker year after year because they believe their broker is watching out for them. But watch-out-for-them, at scale, requires systems — and Craig's systems had been human ones for too long.
+      </p>
+
+      <h3>1. The Manual Tracking Problem</h3>
+      <p>
+        Four hundred policies. Four hundred different expiry dates, spread unevenly across the calendar but clustering heavily in the final quarter. Craig's admin was managing them in a shared spreadsheet: colour-coded tabs, conditional formatting, a column for "contacted" and another for "response received". It worked fine for a book of 150. At 400, it was a liability.
+      </p>
+      <p>
+        "We'd set reminders in our calendars for the big ones," Craig says. "But for the smaller personal lines clients, sometimes we'd look up and realise we had a policy expiring in four days and we hadn't sent anything yet."
+      </p>
+
+      <h3>2. Clients Who Don't Respond</h3>
+      <p>
+        Even when the outreach was timely, getting clients to actually engage with their renewal was a separate battle. Most people don't think about insurance until something goes wrong. A renewal notice sits in an inbox, gets buried under other emails, and by the time Craig's admin was calling to follow up — three, sometimes four calls per client for the stubborn ones — the window for a considered renewal conversation had passed.
+      </p>
+      <p>
+        Under ASIC's Regulatory Guide 175 and the General Insurance Code of Practice, brokers have genuine disclosure obligations around renewals. Sending a reminder isn't just courteous — it's a compliance requirement. Falling behind on outreach isn't just a retention problem; it's a documentation problem.
+      </p>
+
+      <h3>3. Eight Insurers, One Spreadsheet</h3>
+      <p>
+        For commercial clients especially, renewal isn't just a matter of renewing with the same insurer. It means getting quotes from up to eight different underwriters, comparing them across coverage terms and price, and presenting the client with a considered recommendation. Craig was doing this manually — exporting data, building comparison tables in Excel, writing up cover notes by hand. For a broker with a full pipeline, each commercial renewal was consuming two to three hours of professional time.
+      </p>
+
+      <h3>4. Compliance Documentation Falling Behind</h3>
+      <p>
+        Every client interaction needs a paper trail. Under Craig's AFSL obligations and the requirements of RG 175, Financial Services Guides and Product Disclosure Statements need to be current, acknowledged, and filed. As the policy book grew, so did the compliance admin — and it was falling further behind every quarter.
+      </p>
+
+      <h3>5. Claims Follow-Up as a Full-Time Job</h3>
+      <p>
+        On top of renewals, Craig's team was spending more than five hours a week simply chasing claim status updates and relaying them to clients. Ring the insurer. Wait on hold. Get an update. Email the client. Repeat. It was mechanical, time-consuming work with no leverage whatsoever.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">400</div>
+          <div class="stats-callout-label">Policies to track</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">15</div>
+          <div class="stats-callout-label">Policies lost last year</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">5hrs+</div>
+          <div class="stats-callout-label">Weekly claims follow-up</div>
+        </div>
+      </div>
+
+      <h2 id="discovery">The Conversation That Changed Things</h2>
+
+      <p>
+        Craig isn't an early adopter by nature. He's watched plenty of software promises evaporate over the years, and he's careful about what he introduces into a business where trust is the product.
+      </p>
+
+      <p>
+        The conversation that shifted his thinking happened at an industry lunch in Perth's CBD in late 2025. A fellow broker — running a similarly sized book in Fremantle — mentioned she'd deployed an AI system through King Klaw and hadn't touched her renewal spreadsheet in three months.
+      </p>
+
+      <p>
+        "I almost didn't believe her," Craig admits. "My assumption was that it would work fine for some generic industry and fall apart the moment it hit insurance-specific complexity — AFSL compliance, the Code of Practice obligations, the way we have to document advice recommendations. I'd tried a couple of general AI tools before and they were completely useless for anything compliance-adjacent."
+      </p>
+
+      <p>
+        What changed his mind was learning that OpenClaw's platform was specifically configured for financial services regulatory contexts — not just generic task automation, but an AI that could work within the obligations framework of Australian insurance broking.
+      </p>
+
+      <p>
+        He booked a scoping call with the King Klaw team the following week.
+      </p>
+
+      <h2 id="deployment">The Deployment: Built Around Craig's Book</h2>
+
+      <p>
+        The first thing King Klaw did wasn't show Craig a demo. It was ask him questions. What did his renewal workflow actually look like, step by step? How did he segment his clients? What did a good renewal outreach sequence feel like to him — not just functionally, but in terms of tone and relationship? What were his AFSL compliance non-negotiables?
+      </p>
+
+      <p>
+        "That scoping conversation took about two hours," Craig says. "And by the end of it I realised they weren't going to give me a generic system. They were going to build something that worked the way my business actually works."
+      </p>
+
+      <p>
+        The deployment took just over a week. Here's what went live.
+      </p>
+
+      <div class="highlight-box">
+        <div class="highlight-box-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          What was deployed in week one
+        </div>
+        <ul>
+          <li>Automated renewal tracking across all 400 policies — expiry dates ingested, 90/60/30/14/7 day reminder sequences configured per client segment</li>
+          <li>Multi-touch outreach sequences: personalised email → SMS nudge → call reminder flag for the broker, escalating based on non-response</li>
+          <li>AI-drafted renewal summaries for each client, including a plain-English comparison of the incumbent insurer against market alternatives</li>
+          <li>Claims status monitoring — weekly automated updates to clients on active claims, pulling from insurer portals where API access exists</li>
+          <li>Compliance calendar: FSG and PDS version tracking, automatic distribution when regulatory updates require client re-disclosure</li>
+          <li>Post-interaction logging: every outreach, response, and renewal outcome automatically recorded to Craig's CRM for AFSL record-keeping</li>
+        </ul>
+      </div>
+
+      <p>
+        The compliance piece required particular care. Under ASIC's RG 175 and the General Insurance Code of Practice, renewal communications must meet specific disclosure standards — and the AI-drafted client communications were reviewed against these requirements before going live. The King Klaw team worked with Craig to ensure every templated communication met his AFSL obligations, with override controls so Craig or his brokers could review any client-facing content before it was sent.
+      </p>
+
+      <p>
+        "That was important to me," Craig says. "The system does the heavy lifting, but I'm still responsible for the advice that goes out under my licence. I needed to know I had visibility and control."
+      </p>
+
+      <h2 id="nemoclaw">NemoClaw and ASIC Record-Keeping</h2>
+
+      <p>
+        One thing Craig didn't expect to care about going in was data security. But during the scoping conversations, the King Klaw team flagged something he hadn't fully considered: every client communication, every renewal recommendation, every compliance document that passes through his AI system is also a record-keeping obligation under his AFSL licence.
+      </p>
+
+      <p>
+        OpenClaw's March 2026 release included NemoClaw, a security hardening layer that encrypts data at rest and in transit and provides a tamper-evident audit trail of all AI-generated client interactions. For Craig, this meant every AI-drafted renewal summary, every automated outreach message, every claims status update — all timestamped, logged, and exportable in the format ASIC requires for record-keeping compliance.
+      </p>
+
+      <p>
+        Alongside NemoClaw, the release included a backup CLI specifically designed for financial services compliance use cases. Craig's team now runs a nightly export of all AI-generated records to an offline backup, satisfying the record-keeping requirements under his AFSL and the General Insurance Code of Practice without any manual work.
+      </p>
+
+      <p>
+        "It's not something I would have thought to ask for," Craig admits. "But now that I have it, I realise it's actually one of the most important pieces. If ASIC ever knocked on the door, I've got a complete, timestamped record of every client interaction the AI handled. That's real peace of mind."
+      </p>
+
+      <h2 id="results">The Numbers, Six Months On</h2>
+
+      <p>
+        We spoke with Craig at the six-month mark. The results were sharper than either he or the King Klaw team had projected.
+      </p>
+
+      <h3>Retention Rate: 89% to 97%</h3>
+      <p>
+        The headline number. Before OpenClaw, Craig's annual renewal retention rate sat at 89% — not bad by industry averages, but painful when you run the maths. Fifteen policies lost last year at an average commission of around $3,200 per policy: that's roughly $48,000 in annual commission walking out the door, not because clients were unhappy, but because renewals fell through the cracks.
+      </p>
+      <p>
+        Six months in, Craig is tracking at 97% retention. The systematic 90/60/30/14/7 day sequence means no policy reaches its expiry date without at least five substantive touchpoints. Clients who previously didn't respond until three phone calls in are now engaging at the first or second email — because the communication is personalised, timely, and gives them something genuinely useful: a clear comparison of their options.
+      </p>
+      <p>
+        "The renewal summaries are what clients comment on most," Craig says. "They get a one-page overview of their current cover, what we're recommending for renewal, and why. Written in plain English, not insurance jargon. A lot of them have said it's the first time they've actually understood what they're insured for."
+      </p>
+
+      <h3>32 Policies Saved: ~$48K in Annual Commission</h3>
+      <p>
+        Projecting forward from the six-month run rate, Craig expects to retain 32 more policies this renewal season than he did last year. At an average commission of around $1,500 per policy per year across his mixed book, that's approximately <strong>$48,000 in recovered annual commission</strong> — from a platform investment that costs a fraction of that.
+      </p>
+
+      <h3>Claims Follow-Up: Automated</h3>
+      <p>
+        The five-plus hours per week Craig's team was spending on claims follow-up has effectively disappeared. Clients with active claims now receive weekly automated status updates — pulled from insurer portals where possible, or flagged to a broker for manual update where they're not. Craig's team still handles the substantive claims conversations, but the mechanical "what's the status?" calls have stopped entirely.
+      </p>
+      <p>
+        "One of my clients called last week to say she'd never felt so well looked after during a claim," Craig says. "She'd been getting weekly updates throughout a commercial property claim that took nine weeks to settle. She felt informed the whole way through. That kind of experience used to be impossible for us to deliver consistently — now it's the default."
+      </p>
+
+      <h3>15 Hours a Week Returned</h3>
+      <p>
+        Across Craig's three-person team, the time audit tells a clear story. Renewal tracking and outreach: from roughly eight hours per week to under one. Claims follow-up: from five-plus hours to under 30 minutes. Compliance documentation: from three hours to less than an hour. In total, <strong>more than 15 hours per week returned to the team</strong> — hours now going into new business development and client relationships that actually need a human touch.
+      </p>
+
+      <div class="stats-callout">
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">97%</div>
+          <div class="stats-callout-label">Renewal retention rate</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">$48K</div>
+          <div class="stats-callout-label">Commission recovered</div>
+        </div>
+        <div class="stats-callout-item">
+          <div class="stats-callout-number">15hrs</div>
+          <div class="stats-callout-label">Saved per week</div>
+        </div>
+      </div>
+
+      <div class="pull-quote">
+        <p>"I took my first two-week holiday in five years in January. The book didn't miss a beat. That tells you everything."</p>
+        <cite>— Craig Morrison, Principal Broker, Morrison Insurance Brokers</cite>
+      </div>
+
+      <h2 id="compliance">Compliance Without the Overhead</h2>
+
+      <p>
+        For insurance brokers operating under an AFSL, compliance isn't optional and it isn't light. ASIC's RG 175 sets out detailed obligations around how financial product advice must be given, documented, and disclosed. The General Insurance Code of Practice adds a further layer of conduct obligations around claims handling, renewals communication, and complaints. And the record-keeping requirements that run underneath all of it demand that brokers maintain detailed, accurate, and accessible records of every client interaction.
+      </p>
+
+      <p>
+        For a three-person brokerage, meeting these obligations comprehensively has always meant one of two things: significant administrative overhead, or risk. Craig was, by his own admission, living closer to the risk end of that spectrum than he was comfortable with.
+      </p>
+
+      <p>
+        OpenClaw's compliance module changes the calculus. Because every AI-generated action is logged with a timestamp and retained in the NemoClaw-secured audit trail, Craig now has a more complete and accurate compliance record than he did when the process was entirely manual. Ironically, deploying AI has made his compliance position stronger, not weaker.
+      </p>
+
+      <p>
+        "The FSG and PDS tracking is something I used to lose sleep over," Craig says. "When an insurer updates a PDS, I have to ensure all affected clients receive the updated disclosure. That used to be a manual audit — going through the book, identifying who has that product, generating and sending the updated document. Now the system detects the version change, identifies the affected clients, and handles the distribution automatically. I get a completion report when it's done."
+      </p>
+
+      <h2 id="honest-take">What Didn't Go Perfectly</h2>
+
+      <p>
+        Craig is measured about the full picture.
+      </p>
+
+      <p>
+        The data migration was the roughest part. Fourteen years of client records, policy details, and expiry dates living across multiple systems needed to be consolidated before OpenClaw could take over tracking. That process took about two weeks and required more manual reconciliation than anyone would have liked.
+      </p>
+
+      <p>
+        "If you've got messy data going in, you get messy outputs coming out," Craig says. "We had to do a proper data audit first. It was tedious, but it was worth doing properly."
+      </p>
+
+      <p>
+        He also notes that the AI-drafted renewal summaries needed tuning in the early weeks. The first versions were technically accurate but felt a little generic for his more established clients — people he'd been looking after for a decade who expected communications that felt personal. It took a few iterations to get the tone right.
+      </p>
+
+      <p>
+        "For the complex commercial clients, I still write the renewal letter myself," Craig says. "Or at least, I heavily edit what the AI produces. Those relationships need a personal touch that you can't fully automate. But for the personal lines book — the home and contents, the landlord policies — the AI handles it completely and the clients are happy."
+      </p>
+
+      <h2 id="takeaway">What Insurance Brokers Need to Know</h2>
+
+      <p>
+        Craig's situation isn't unusual. Talk to any insurance broker running a book of more than 200 policies and you'll hear variations on the same story: renewal season as organised chaos, compliance documentation as a low-grade constant anxiety, claims follow-up as a time sink that never quite gets emptied.
+      </p>
+
+      <p>
+        The structural problem is that insurance broking is a high-trust, high-compliance business that has traditionally required large amounts of mechanical, low-judgement work to operate. Brokers become brokers because they're good at understanding risk and building client relationships — not because they want to spend their days managing spreadsheets and chasing emails.
+      </p>
+
+      <p>
+        OpenClaw doesn't replace the relationship work. It removes the mechanical layer that sits underneath it, so the broker can spend their time on the parts of the job that actually require a human.
+      </p>
+
+      <p>
+        Craig puts it simply: "My clients aren't paying me to send them reminder emails. They're paying me to make sure they're properly covered when something goes wrong. I can focus on that now."
+      </p>
+
+      <p>
+        For brokers considering the move, Craig's advice is practical: start with your renewal tracking and outreach. It's the highest-impact, clearest-ROI application for a book of any size. Get that running cleanly, then layer in claims monitoring and compliance automation. Don't try to automate everything at once.
+      </p>
+
+      <p>
+        "Fifteen policies lost last year because of a process problem, not a relationship problem," Craig says. "That's what keeps you up at night as a broker. Knowing that clients left not because you let them down on the advice, but because the admin fell over. Fix the admin first."
+      </p>
+
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="article-sidebar">
+
+      <!-- Table of contents -->
+      <div class="sidebar-card">
+        <h4>In This Story</h4>
+        <nav class="sidebar-toc" id="toc">
+          <a href="#problem">The Renewal Nightmare</a>
+          <a href="#discovery">Finding OpenClaw</a>
+          <a href="#deployment">The Deployment</a>
+          <a href="#nemoclaw">NemoClaw &amp; Compliance</a>
+          <a href="#results">The Results</a>
+          <a href="#compliance">Compliance Without Overhead</a>
+          <a href="#honest-take">What Didn't Go Perfectly</a>
+          <a href="#takeaway">What Brokers Should Know</a>
+        </nav>
+      </div>
+
+      <!-- Share -->
+      <div class="sidebar-card">
+        <h4>Share This Story</h4>
+        <div class="share-buttons">
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://kingklaw.com.au/blog/2026-03-16-insurance-broker-renewals-on-autopilot.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            Share on LinkedIn
+          </a>
+          <a href="https://twitter.com/intent/tweet?text=How+a+Perth+insurance+broker+put+400+renewals+on+autopilot+with+OpenClaw+AI&url=https://kingklaw.com.au/blog/2026-03-16-insurance-broker-renewals-on-autopilot.html" target="_blank" rel="noopener" class="share-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.85L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Share on X (Twitter)
+          </a>
+          <button class="share-btn" onclick="navigator.clipboard.writeText(window.location.href).then(()=>this.textContent='Copied!')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+            Copy Link
+          </button>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="sidebar-cta">
+        <h4>Ready to fix your renewal season?</h4>
+        <p>Book a free 30-minute demo. We'll show you exactly how OpenClaw handles renewals, compliance, and claims for insurance brokers.</p>
+        <a href="../#cta" class="sidebar-cta-btn">Book a Free Demo →</a>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- Article CTA -->
+  <div class="article-cta">
+    <h2>Ready to stop losing policies to admin?</h2>
+    <p>Book a free demo and we'll map exactly how OpenClaw fits your brokerage — renewal tracking, compliance automation, and claims follow-up included.</p>
+    <div class="article-cta-btns">
+      <a href="../#cta" class="btn-coral">Book a Free Demo →</a>
+      <a href="../#pricing" class="btn-glass">See Pricing</a>
+    </div>
+  </div>
+
+  <!-- Related Posts -->
+  <div class="related-posts">
+    <h3>More from the blog</h3>
+    <div class="related-grid">
+      <div class="related-card">
+        <div class="related-card-placeholder">🏦</div>
+        <a href="2026-03-23-how-brisbane-mortgage-broker-saved-12-hours-week.html" style="text-decoration:none;">
+          <span class="tag" style="margin-bottom:12px;display:inline-flex;">Case Study</span>
+          <h4>How a Brisbane Mortgage Broker Saved 12 Hours a Week With OpenClaw</h4>
+          <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">Sarah Chen's Fortitude Valley brokerage was drowning in admin. Here's how she got her evenings back.</p>
+        </a>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">⚖️</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>How a Brisbane Law Firm Cut Document Review Time by 60%</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A 4-partner firm shares how AI-assisted contract review changed their billing model.</p>
+      </div>
+      <div class="related-card">
+        <div class="related-card-placeholder">🏠</div>
+        <span class="tag" style="margin-bottom:12px;display:inline-flex;">Coming Soon</span>
+        <h4>The Real Estate Agency That Never Misses an After-Hours Enquiry</h4>
+        <p style="font-size:13px;color:var(--text-muted);margin-top:8px;">A Gold Coast agency on automating weekend enquiries and buyer pre-qualification.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer style="border-top:1px solid var(--border); padding:60px 0 40px; margin-top:80px;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap:48px; margin-bottom:48px;" class="footer-grid">
+      <div>
+        <div style="display:flex; align-items:center; gap:10px; font-family:'Plus Jakarta Sans',sans-serif; font-size:20px; font-weight:800; color:#fff; margin-bottom:16px;">
+          <span style="animation:lobster-pulse 3s ease-in-out infinite;">👑🦞</span> King Klaw
+        </div>
+        <p style="font-size:14px; color:var(--text-muted); max-width:280px; line-height:1.7;">OpenClaw, deployed for Australian businesses. Premium AI infrastructure for the industries that keep the country moving.</p>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Product</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#what-is" class="link-grow" style="font-size:14px;">Platform</a>
+          <a href="../#marketplace" class="link-grow" style="font-size:14px;">Marketplace</a>
+          <a href="../#pricing" class="link-grow" style="font-size:14px;">Pricing</a>
+          <a href="../#how" class="link-grow" style="font-size:14px;">How It Works</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Industries</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Mortgage Brokers</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Law Firms</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Real Estate</a>
+          <a href="../#industries" class="link-grow" style="font-size:14px;">Accounting</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--text-muted); margin-bottom:20px;">Company</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="../blog/" class="link-grow" style="font-size:14px;">Blog</a>
+          <a href="mailto:hello@kingklaw.com.au" class="link-grow" style="font-size:14px;">Contact</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Privacy Policy</a>
+          <a href="#" class="link-grow" style="font-size:14px;">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--border); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+      <div style="font-size:13px; color:var(--text-muted);">© 2026 King Klaw Pty Ltd. All rights reserved. ABN TBC. Brisbane, Australia.</div>
+      <div style="font-size:13px; color:var(--text-muted);">Powered by <a href="https://github.com/openclaw" class="link-grow">OpenClaw</a> open-source platform.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Nav scroll ── */
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
+
+/* ── Mobile menu ── */
+function closeMob() { document.getElementById('mobMenu').classList.remove('open'); }
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('mobMenu').classList.toggle('open');
+});
+
+/* ── Reading progress bar ── */
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  document.getElementById('read-progress').style.width = progress + '%';
+});
+
+/* ── TOC active state on scroll ── */
+const headings = document.querySelectorAll('article h2[id], article h3[id]');
+const tocLinks = document.querySelectorAll('#toc a');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      tocLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+headings.forEach(h => observer.observe(h));
+
+/* ── Responsive footer grid ── */
+function checkFooter() {
+  const fg = document.querySelector('.footer-grid');
+  if (fg) {
+    fg.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr 1fr' : '2fr 1fr 1fr 1fr';
+  }
+}
+checkFooter();
+window.addEventListener('resize', checkFooter);
+</script>
+</body>
+</html>
