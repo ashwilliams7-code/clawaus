@@ -671,6 +671,11 @@ a.link-grow:hover::after { width: 100%; }
   .section-title { font-size: 1.8rem; }
   .section-sub { font-size: 15px; }
 
+  /* Industry grid — stack on mobile */
+  #industries .container > div[style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+  }
+
   /* Hero */
   .hero-title { font-size: 2rem !important; }
   .hero-sub { font-size: 15px !important; }
@@ -1237,7 +1242,7 @@ a.link-grow:hover::after { width: 100%; }
           <div style="display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--text-muted);"><span style="color:#dc2626; font-size:16px; margin-top:1px;">✗</span> Average deal cycle: 47 days</div>
         </div>
         <!-- After panel (clipped) -->
-        <div id="baAfter" style="position:absolute; inset:0; background:linear-gradient(135deg,rgba(20,184,166,0.08),rgba(255,92,92,0.06)); padding:48px; display:flex; flex-direction:column; gap:16px; clip-path:inset(0 50% 0 0);">
+        <div id="baAfter" style="position:absolute; inset:0; background:linear-gradient(135deg,#0d1a1a,#0a1015); padding:48px; display:flex; flex-direction:column; gap:16px; clip-path:inset(0 50% 0 0);">
           <div style="font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--teal); margin-bottom:8px;">With King Klaw</div>
           <div style="display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--text);"><span style="color:var(--teal); font-size:16px; margin-top:1px;">✓</span> Email drafts auto-generated in seconds</div>
           <div style="display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--text);"><span style="color:var(--teal); font-size:16px; margin-top:1px;">✓</span> Smart document portal — zero email chains</div>
